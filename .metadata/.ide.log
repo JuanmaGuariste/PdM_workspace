@@ -964,3 +964,440 @@
 2021-11-05 20:54:26,625 [INFO] McuFinderGlobals:52 - Set McuFinderConnectedMode to true
 2021-11-05 20:54:26,627 [INFO] ApiDb:276 - Save user favorites file /home/pato/.stm32cubeide/favorites.mcus.txt: 0 item(s)
 2021-11-05 20:54:26,628 [INFO] ApiDb:280 - User favorites MCUs=[]
+2024-06-30 14:58:42,390 [INFO] Activator:176 - 
+
+
+2024-06-30 14:58:42,391 [INFO] Activator:177 - !SESSION log4j initialized
+2024-06-30 14:58:45,291 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Working directory: /opt/st/stm32cubeide_1.15.1/../../../home/juanma/.eclipse/com.st.stm32cube.ide.mcu.rcp.product_1.15.1_139064214_linux_gtk_x86_64/plugins/com.genuitec.copilot4eclipse_1.2.1.202406240349/agent/dist
+2024-06-30 14:58:45,906 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 14:58:47,604 [INFO] ApplicationProperties:184 - Using Application install path: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753
+2024-06-30 14:58:47,622 [INFO] DbMcusXml:78 - Set database path to: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753//db//mcu/
+2024-06-30 14:58:47,622 [INFO] ApiDb:274 - Set plugin database path to: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753//db//plugins/boardmanager/
+2024-06-30 14:58:47,622 [WARN] ApiDb:259 - Overriding images path with different value:  => /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753//db//plugins/mcufinder/images/
+2024-06-30 14:58:47,628 [INFO] ApiDb:250 - Set database path to: /home/juanma/.stmcufinder/plugins/mcufinder//mcu/
+2024-06-30 14:58:47,629 [INFO] DbMcusAds:125 - Set database path to: /home/juanma/.stmcufinder/plugins/mcufinder//mcu/
+2024-06-30 14:58:47,631 [INFO] CrossReferenceDbSqlite:203 - Set database path to: /home/juanma/.stmcufinder/plugins/mcufinder//mcu/cs/
+2024-06-30 14:58:47,703 [INFO] RulesReader:64 - Compatibility file has been processed (297 Rules)
+2024-06-30 14:58:47,738 [INFO] DbMcusXml:78 - Set database path to: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753//db//mcu/
+2024-06-30 14:58:47,738 [INFO] ApiDb:274 - Set plugin database path to: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753//db//plugins/boardmanager/
+2024-06-30 14:58:47,738 [INFO] ApiDb:261 - Set plugin images path to: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753//db//plugins/mcufinder/images/
+2024-06-30 14:58:47,738 [WARN] DbFile:41 - Overriding database path with different value: /home/juanma/.stmcufinder/plugins/mcufinder/ => /home/juanma/.stmcufinder/plugins/mcufinder
+2024-06-30 14:58:47,738 [INFO] ApiDb:250 - Set database path to: /home/juanma/.stmcufinder/plugins/mcufinder//mcu/
+2024-06-30 14:58:47,738 [WARN] DbFile:41 - Overriding database path with different value: /home/juanma/.stmcufinder/plugins/mcufinder/ => /home/juanma/.stmcufinder/plugins/mcufinder
+2024-06-30 14:58:47,738 [INFO] DbMcusAds:125 - Set database path to: /home/juanma/.stmcufinder/plugins/mcufinder//mcu/
+2024-06-30 14:58:47,738 [WARN] DbFile:41 - Overriding database path with different value: /home/juanma/.stmcufinder/plugins/mcufinder/ => /home/juanma/.stmcufinder/plugins/mcufinder
+2024-06-30 14:58:47,738 [WARN] DbFile:41 - Overriding database path with different value: /home/juanma/.stmcufinder/plugins/mcufinder/ => /home/juanma/.stmcufinder/plugins/mcufinder
+2024-06-30 14:58:47,739 [INFO] CrossReferenceDbSqlite:203 - Set database path to: /home/juanma/.stmcufinder/plugins/mcufinder//mcu/cs/
+2024-06-30 14:58:47,798 [INFO] MainPanel:264 - HeapMemory: 268435456
+2024-06-30 14:58:47,861 [INFO] DbMcusXml:78 - Set database path to: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753//db//mcu/
+2024-06-30 14:58:47,861 [INFO] ApiDb:274 - Set plugin database path to: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753//db//plugins/boardmanager/
+2024-06-30 14:58:47,861 [INFO] ApiDb:261 - Set plugin images path to: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753//db//plugins/mcufinder/images/
+2024-06-30 14:58:47,861 [WARN] DbFile:41 - Overriding database path with different value: /home/juanma/.stmcufinder/plugins/mcufinder/ => /home/juanma/.stmcufinder/plugins/mcufinder
+2024-06-30 14:58:47,861 [INFO] ApiDb:250 - Set database path to: /home/juanma/.stmcufinder/plugins/mcufinder//mcu/
+2024-06-30 14:58:47,861 [WARN] DbFile:41 - Overriding database path with different value: /home/juanma/.stmcufinder/plugins/mcufinder/ => /home/juanma/.stmcufinder/plugins/mcufinder
+2024-06-30 14:58:47,861 [INFO] DbMcusAds:125 - Set database path to: /home/juanma/.stmcufinder/plugins/mcufinder//mcu/
+2024-06-30 14:58:47,861 [WARN] DbFile:41 - Overriding database path with different value: /home/juanma/.stmcufinder/plugins/mcufinder/ => /home/juanma/.stmcufinder/plugins/mcufinder
+2024-06-30 14:58:47,861 [WARN] DbFile:41 - Overriding database path with different value: /home/juanma/.stmcufinder/plugins/mcufinder/ => /home/juanma/.stmcufinder/plugins/mcufinder
+2024-06-30 14:58:47,861 [INFO] CrossReferenceDbSqlite:203 - Set database path to: /home/juanma/.stmcufinder/plugins/mcufinder//mcu/cs/
+2024-06-30 14:58:47,871 [INFO] ApplicationProperties:184 - Using Application install path: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753
+2024-06-30 14:58:47,872 [INFO] PluginManage:196 - Search for loadable plugins [exclusion list=, ]
+2024-06-30 14:58:47,873 [INFO] PluginManage:310 - Check plugin analytics
+2024-06-30 14:58:47,971 [INFO] AnalyticsPlugin:253 - Accepted Software Licenses: 
+2024-06-30 14:58:47,971 [INFO] AnalyticsPlugin:255 - Accepted CMSIS Pack Licenses: 
+2024-06-30 14:58:47,971 [INFO] AnalyticsPlugin:257 - Accepted Firmware Licenses: 
+2024-06-30 14:58:47,972 [INFO] PluginManage:359 - Loaded plugin analytics (category:tool,tabindex:-1)
+2024-06-30 14:58:47,972 [INFO] PluginManage:310 - Check plugin cadmodel
+2024-06-30 14:58:47,989 [INFO] CADModel:105 - Init CAD model plugin
+2024-06-30 14:58:47,990 [INFO] PluginManage:359 - Loaded plugin cadmodel (category:power,tabindex:5)
+2024-06-30 14:58:47,990 [INFO] PluginManage:310 - Check plugin clock
+2024-06-30 14:58:48,000 [INFO] PluginManage:359 - Loaded plugin clock (category:base,tabindex:2)
+2024-06-30 14:58:48,000 [INFO] PluginManage:310 - Check plugin ddr
+2024-06-30 14:58:48,002 [INFO] PluginManage:359 - Loaded plugin ddr (category:tool,tabindex:6)
+2024-06-30 14:58:48,002 [INFO] PluginManage:310 - Check plugin filemanager
+2024-06-30 14:58:48,094 [INFO] PluginManage:359 - Loaded plugin filemanager (category:base,tabindex:10)
+2024-06-30 14:58:48,095 [INFO] PluginManage:310 - Check plugin ipmanager
+2024-06-30 14:58:48,100 [INFO] PluginManage:359 - Loaded plugin ipmanager (category:base,tabindex:5)
+2024-06-30 14:58:48,100 [INFO] PluginManage:310 - Check plugin lpbam
+2024-06-30 14:58:48,106 [INFO] PluginManage:359 - Loaded plugin lpbam (category:base,tabindex:0)
+2024-06-30 14:58:48,106 [INFO] PluginManage:310 - Check plugin memorymap
+2024-06-30 14:58:48,114 [INFO] PluginManage:359 - Loaded plugin memorymap (category:base,tabindex:4)
+2024-06-30 14:58:48,114 [INFO] PluginManage:310 - Check plugin pinoutandconfiguration
+2024-06-30 14:58:48,120 [INFO] PluginManage:359 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
+2024-06-30 14:58:48,120 [INFO] PluginManage:310 - Check plugin pinoutconfig
+2024-06-30 14:58:48,166 [WARN] SupportedApi:132 - Cannot load RTOS API schema: s4s-elt-must-match.1: The content of 'definitions' must match (annotation?, (simpleType | complexType)?, (unique | key | keyref)*)). A problem was found starting at: attribute.
+2024-06-30 14:58:48,238 [INFO] PluginManage:359 - Loaded plugin pinoutconfig (category:base,tabindex:0)
+2024-06-30 14:58:48,238 [INFO] PluginManage:310 - Check plugin power
+2024-06-30 14:58:48,245 [INFO] PluginManage:359 - Loaded plugin power (category:power,tabindex:4)
+2024-06-30 14:58:48,245 [INFO] PluginManage:310 - Check plugin projectmanager
+2024-06-30 14:58:48,253 [INFO] PluginManage:359 - Loaded plugin projectmanager (category:projectmanager,tabindex:3)
+2024-06-30 14:58:48,253 [INFO] PluginManage:310 - Check plugin thirdparty
+2024-06-30 14:58:48,326 [INFO] PluginManage:359 - Loaded plugin thirdparty (category:base,tabindex:-1)
+2024-06-30 14:58:48,326 [WARN] IntegrityCheckThread:84 - waiting for thirdparty lock release [integrity check]
+2024-06-30 14:58:48,326 [INFO] PluginManage:310 - Check plugin tools
+2024-06-30 14:58:48,326 [INFO] IntegrityCheckThread:86 - entering critical section [integrity check]
+2024-06-30 14:58:48,327 [INFO] ThirdPartyUpdaterWithRetryManager:70 - Updater plugin not ready yet. [1/15]
+2024-06-30 14:58:48,328 [INFO] PluginManage:359 - Loaded plugin tools (category:base,tabindex:7)
+2024-06-30 14:58:48,328 [INFO] PluginManage:310 - Check plugin tutovideos
+2024-06-30 14:58:48,434 [INFO] PluginManage:359 - Loaded plugin tutovideos (category:base,tabindex:-1)
+2024-06-30 14:58:48,434 [INFO] PluginManage:310 - Check plugin updater
+2024-06-30 14:58:48,441 [INFO] PluginManage:359 - Loaded plugin updater (category:base,tabindex:12)
+2024-06-30 14:58:48,441 [INFO] PluginManage:310 - Check plugin userauth
+2024-06-30 14:58:48,445 [INFO] UserAuth:114 - Init User Auth plugin
+2024-06-30 14:58:48,445 [INFO] PluginManage:359 - Loaded plugin userauth (category:base,tabindex:14)
+2024-06-30 14:58:48,445 [INFO] PluginManage:283 - PluginManage : Loaded plugins [17]
+2024-06-30 14:58:48,549 [INFO] PinOutPanel:1561 - setPackage(No Configuration,No Configuration)
+2024-06-30 14:58:48,586 [INFO] CADModel:165 - CPN selected for project level
+2024-06-30 14:58:48,586 [INFO] CADModel:114 - Register for checkConnection events
+2024-06-30 14:58:48,595 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,595 [INFO] PluginManager:220 - loadIPPluginJar : add openamp
+2024-06-30 14:58:48,600 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,600 [INFO] PluginManager:220 - loadIPPluginJar : add dma
+2024-06-30 14:58:48,604 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,604 [INFO] PluginManager:220 - loadIPPluginJar : add i2c
+2024-06-30 14:58:48,609 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,609 [INFO] PluginManager:220 - loadIPPluginJar : add stm32_wpan
+2024-06-30 14:58:48,613 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,613 [INFO] PluginManager:220 - loadIPPluginJar : add gpio
+2024-06-30 14:58:48,614 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,615 [INFO] PluginManager:220 - loadIPPluginJar : add tsc
+2024-06-30 14:58:48,616 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,617 [INFO] PluginManager:220 - loadIPPluginJar : add usart
+2024-06-30 14:58:48,617 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,618 [INFO] PluginManager:220 - loadIPPluginJar : add quadspi
+2024-06-30 14:58:48,620 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,621 [INFO] PluginManager:220 - loadIPPluginJar : add resmgrutility
+2024-06-30 14:58:48,623 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,623 [INFO] PluginManager:220 - loadIPPluginJar : add opamp
+2024-06-30 14:58:48,626 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,626 [INFO] PluginManager:220 - loadIPPluginJar : add gtzc
+2024-06-30 14:58:48,631 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,632 [INFO] PluginManager:220 - loadIPPluginJar : add freertos
+2024-06-30 14:58:48,634 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,634 [INFO] PluginManager:220 - loadIPPluginJar : add can
+2024-06-30 14:58:48,636 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,636 [INFO] PluginManager:220 - loadIPPluginJar : add gfxmmu
+2024-06-30 14:58:48,638 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,638 [INFO] PluginManager:220 - loadIPPluginJar : add ucpd
+2024-06-30 14:58:48,640 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,640 [INFO] PluginManager:220 - loadIPPluginJar : add cryp
+2024-06-30 14:58:48,641 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,642 [INFO] PluginManager:220 - loadIPPluginJar : add ts
+2024-06-30 14:58:48,647 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,647 [INFO] PluginManager:220 - loadIPPluginJar : add linkedlist
+2024-06-30 14:58:48,649 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,649 [INFO] PluginManager:220 - loadIPPluginJar : add usbx
+2024-06-30 14:58:48,650 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,651 [INFO] PluginManager:220 - loadIPPluginJar : add ltdc
+2024-06-30 14:58:48,653 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,653 [INFO] PluginManager:220 - loadIPPluginJar : add ipddr
+2024-06-30 14:58:48,654 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,654 [INFO] PluginManager:220 - loadIPPluginJar : add tim
+2024-06-30 14:58:48,657 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,657 [INFO] PluginManager:220 - loadIPPluginJar : add sai
+2024-06-30 14:58:48,660 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,660 [INFO] PluginManager:220 - loadIPPluginJar : add fmc
+2024-06-30 14:58:48,662 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,662 [INFO] PluginManager:220 - loadIPPluginJar : add pdm2pcm
+2024-06-30 14:58:48,664 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,664 [INFO] PluginManager:220 - loadIPPluginJar : add lorawan
+2024-06-30 14:58:48,665 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,665 [INFO] PluginManager:220 - loadIPPluginJar : add genericplugin
+2024-06-30 14:58:48,669 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,669 [INFO] PluginManager:220 - loadIPPluginJar : add adc
+2024-06-30 14:58:48,671 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,671 [INFO] PluginManager:220 - loadIPPluginJar : add dma3
+2024-06-30 14:58:48,672 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,672 [INFO] PluginManager:220 - loadIPPluginJar : add comp
+2024-06-30 14:58:48,673 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,673 [INFO] PluginManager:220 - loadIPPluginJar : add dfsdm
+2024-06-30 14:58:48,674 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,674 [INFO] PluginManager:220 - loadIPPluginJar : add aes
+2024-06-30 14:58:48,675 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,676 [INFO] PluginManager:220 - loadIPPluginJar : add spi
+2024-06-30 14:58:48,680 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,681 [INFO] PluginManager:220 - loadIPPluginJar : add plateformsettings
+2024-06-30 14:58:48,683 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,683 [INFO] PluginManager:220 - loadIPPluginJar : add touchsensing
+2024-06-30 14:58:48,684 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,684 [INFO] PluginManager:220 - loadIPPluginJar : add fatfs
+2024-06-30 14:58:48,685 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,685 [INFO] PluginManager:220 - loadIPPluginJar : add hash
+2024-06-30 14:58:48,686 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,686 [INFO] PluginManager:220 - loadIPPluginJar : add extmemmanager
+2024-06-30 14:58:48,689 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,689 [INFO] PluginManager:220 - loadIPPluginJar : add nvic
+2024-06-30 14:58:48,692 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,692 [INFO] PluginManager:220 - loadIPPluginJar : add gic
+2024-06-30 14:58:48,693 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,693 [INFO] PluginManager:220 - loadIPPluginJar : add i2s
+2024-06-30 14:58:48,694 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,694 [INFO] PluginManager:220 - loadIPPluginJar : add tracer_emb
+2024-06-30 14:58:48,698 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,698 [INFO] PluginManager:220 - loadIPPluginJar : add mdma
+2024-06-30 14:58:48,699 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-06-30 14:58:48,699 [INFO] PluginManager:220 - loadIPPluginJar : add i3c
+2024-06-30 14:58:48,788 [INFO] CADModel:165 - CPN selected for project level
+2024-06-30 14:58:48,788 [INFO] CADModel:114 - Register for checkConnection events
+2024-06-30 14:58:48,788 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-06-30 14:58:48,788 [ERROR] CADModel:125 - Updater not yet initialized, retry later 
+2024-06-30 14:58:48,912 [INFO] CADModel:165 - CPN selected for project level
+2024-06-30 14:58:48,912 [INFO] CADModel:114 - Register for checkConnection events
+2024-06-30 14:58:48,913 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-06-30 14:58:48,913 [ERROR] CADModel:125 - Updater not yet initialized, retry later 
+2024-06-30 14:58:48,917 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-06-30 14:58:49,003 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-06-30 14:58:49,007 [INFO] DbMcusAds:53 - JSON generation date=Thu Sep 30 03:55:09 ART 2021 (1632984909247)
+2024-06-30 14:58:49,007 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-06-30 14:58:49,031 [WARN] DetailPanel:346 - Failed to get advertising image, set to default
+2024-06-30 14:58:49,098 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-06-30 14:58:49,099 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-06-30 14:58:49,099 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-06-30 14:58:49,099 [WARN] DetailPanel:346 - Failed to get advertising image, set to default
+2024-06-30 14:58:49,100 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-06-30 14:58:49,131 [ERROR] Updater:1120 - MainUpdater not yet initialized. External WinMGr cannot be set.
+2024-06-30 14:58:49,132 [INFO] Updater:1056 - Updater Version found : 6.11.1
+2024-06-30 14:58:49,158 [INFO] ApplicationProperties:184 - Using Application install path: /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753
+2024-06-30 14:58:49,172 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 2:58:49 PM java.util.prefs.FileSystemPreferences$2 run
+2024-06-30 14:58:49,172 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not create system preferences directory. System preferences are unusable.
+2024-06-30 14:58:49,172 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 14:58:49,383 [INFO] MainUpdater:2873 - connection check result : 10
+2024-06-30 14:58:49,384 [INFO] MainUpdater:290 - Updater Check For Update Now.
+2024-06-30 14:58:49,385 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.111
+2024-06-30 14:58:49,391 [INFO] McuFinderGlobals:63 - Set McuFinder mode to 2 (CubeIDE integrated)
+2024-06-30 14:58:49,391 [INFO] UserAuth:179 - activating auth plugin
+2024-06-30 14:58:49,397 [INFO] UserAuth:415 - Internet connection configuration mode: 1
+2024-06-30 14:58:49,412 [INFO] JxBrowserEngine:152 - Initiate JxBrowser Engine with user profile folder
+2024-06-30 14:58:49,560 [INFO] CheckServerUpdateThread:120 - End of CheckServer Thread
+2024-06-30 14:58:49,940 [INFO] WebApp:161 - Instantiating new browser for Auth
+2024-06-30 14:58:50,541 [INFO] WebApp:779 - Register for checkConnection events
+2024-06-30 14:58:50,541 [INFO] WebApp:414 - Apply proxy settings
+2024-06-30 14:58:50,542 [INFO] WebApp:499 - Chromium requires no authentication
+2024-06-30 14:58:50,549 [INFO] WebApp:442 - Direct internet connection detected
+2024-06-30 14:58:50,715 [INFO] WebApp:192 - Starting web application
+2024-06-30 14:58:50,716 [INFO] WebApp:544 - Web application path used /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.common.mx_6.11.1.202404110753/db/plugins/mcufinder/reactClient1/index.html
+2024-06-30 14:58:51,390 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-FLIGHT1.5.0.2
+2024-06-30 14:58:51,401 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-DISPLAY.3.0.0
+2024-06-30 14:58:51,411 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE1.7.0.0
+2024-06-30 14:58:51,430 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLEMGR.3.1.0
+2024-06-30 14:58:51,440 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-SMARTAG2.1.2.0
+2024-06-30 14:58:51,448 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE2.3.3.0
+2024-06-30 14:58:51,454 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-ATR-SIGFOX1.3.2.0
+2024-06-30 14:58:51,465 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-EEPRMA1.5.1.0
+2024-06-30 14:58:51,489 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-GNSS1.6.0.0
+2024-06-30 14:58:51,498 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-ISPU.2.0.0
+2024-06-30 14:58:51,557 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-MEMS1.10.0.0
+2024-06-30 14:58:51,680 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-ATR-ASTRA1.2.0.0
+2024-06-30 14:58:51,681 [INFO] ThirdParty:978 - Integrity check success = true
+2024-06-30 14:58:51,681 [INFO] IntegrityCheckThread:100 - exiting critical section [integrity check]
+2024-06-30 14:58:51,681 [INFO] IntegrityCheckThread:103 - End integrity checks thread
+2024-06-30 14:59:16,132 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 2:59:16 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 14:59:16,133 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 0.
+2024-06-30 14:59:16,134 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 14:59:16,135 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 2:59:16 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 14:59:16,136 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 14:59:16,136 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 14:59:33,982 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 2024-06-30 14:59:33.978:INFO :jei.FileDataWriter:main: Interruptible file channel will be used
+2024-06-30 14:59:33,982 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] java.lang.reflect.InaccessibleObjectException: Unable to make public void sun.nio.ch.FileChannelImpl.setUninterruptible() accessible: module java.base does not "exports sun.nio.ch" to unnamed module @2104dc12
+2024-06-30 14:59:33,982 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+2024-06-30 14:59:33,983 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+2024-06-30 14:59:33,983 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.lang.reflect.Method.checkCanSetAccessible(Method.java:199)
+2024-06-30 14:59:33,983 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.lang.reflect.Method.setAccessible(Method.java:193)
+2024-06-30 14:59:33,983 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.io.FileDataWriter$Companion$setUninterruptibleMethod$1.invoke(FileDataWriter.kt:188)
+2024-06-30 14:59:33,983 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.io.FileDataWriter$Companion$setUninterruptibleMethod$1.invoke(FileDataWriter.kt:185)
+2024-06-30 14:59:33,984 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.util.UnsafeHolder.doPrivileged$lambda-0(UnsafeHolder.kt:30)
+2024-06-30 14:59:33,984 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+2024-06-30 14:59:33,984 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.util.UnsafeHolder.doPrivileged(UnsafeHolder.kt:29)
+2024-06-30 14:59:33,984 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.io.FileDataWriter.<clinit>(FileDataWriter.kt:185)
+2024-06-30 14:59:33,984 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.io.FileDataReaderWriterProvider.newFileDataWriter(FileDataReaderWriterProvider.kt:48)
+2024-06-30 14:59:33,985 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.io.FileDataReaderWriterProvider.newReaderWriter(FileDataReaderWriterProvider.kt:30)
+2024-06-30 14:59:33,985 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.log.LogConfig.createReaderWriter(LogConfig.java:359)
+2024-06-30 14:59:33,985 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.log.LogConfig.getReader(LogConfig.java:125)
+2024-06-30 14:59:33,985 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.log.Log.<init>(Log.kt:52)
+2024-06-30 14:59:33,985 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.env.Environments.newLogInstance(Environments.kt:117)
+2024-06-30 14:59:33,986 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.env.Environments.newLogInstance(Environments.kt:81)
+2024-06-30 14:59:33,986 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.env.Environments.newLogInstance(Environments.kt:77)
+2024-06-30 14:59:33,986 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.env.Environments$newInstance$4.invoke(Environments.kt:46)
+2024-06-30 14:59:33,986 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.env.Environments$newInstance$4.invoke(Environments.kt:46)
+2024-06-30 14:59:33,986 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.env.Environments.prepare(Environments.kt:120)
+2024-06-30 14:59:33,986 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.env.Environments.newInstance(Environments.kt:46)
+2024-06-30 14:59:33,987 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.entitystore.PersistentEntityStores.newInstance(PersistentEntityStores.java:64)
+2024-06-30 14:59:33,987 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jetbrains.exodus.entitystore.PersistentEntityStores.newInstance(PersistentEntityStores.java:70)
+2024-06-30 14:59:33,987 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.genuitec.copilot4eclipse.chat.persistence.ChatPersistenceManager.init(ChatPersistenceManager.java:56)
+2024-06-30 14:59:33,987 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.genuitec.copilot4eclipse.chat.persistence.ChatPersistenceManager.<init>(ChatPersistenceManager.java:45)
+2024-06-30 14:59:33,987 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.genuitec.copilot4eclipse.chat.ChatService.init(ChatService.java:142)
+2024-06-30 14:59:33,988 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.genuitec.copilot4eclipse.chat.ChatService.statusChanged(ChatService.java:697)
+2024-06-30 14:59:33,988 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.genuitec.copilot4eclipse.chat.ChatService.<init>(ChatService.java:133)
+2024-06-30 14:59:33,988 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.genuitec.copilot4eclipse.chat.ChatService$LazyHolder.<clinit>(ChatService.java:110)
+2024-06-30 14:59:33,988 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.genuitec.copilot4eclipse.chat.ChatService.getInstance(ChatService.java:114)
+2024-06-30 14:59:33,988 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.genuitec.copilot4eclipse.chat.ChatUtils.getChatService(ChatUtils.java:34)
+2024-06-30 14:59:33,989 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.genuitec.copilot4eclipse.chat.ui.ChatPopupMenuContribution.createSkillMenuItems(ChatPopupMenuContribution.java:181)
+2024-06-30 14:59:33,989 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.genuitec.copilot4eclipse.chat.ui.ChatPopupMenuContribution.getContributionItems(ChatPopupMenuContribution.java:100)
+2024-06-30 14:59:33,989 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ui.actions.CompoundContributionItem.getContributionItemsToFill(CompoundContributionItem.java:83)
+2024-06-30 14:59:33,990 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ui.actions.CompoundContributionItem.fill(CompoundContributionItem.java:57)
+2024-06-30 14:59:33,990 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.menus.DynamicMenuContributionItem.fill(DynamicMenuContributionItem.java:146)
+2024-06-30 14:59:33,990 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.MenuManager.doItemFill(MenuManager.java:729)
+2024-06-30 14:59:33,990 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.MenuManager.update(MenuManager.java:806)
+2024-06-30 14:59:33,990 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.MenuManager.update(MenuManager.java:673)
+2024-06-30 14:59:33,990 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.scheduleManagerUpdate(MenuManagerRenderer.java:1227)
+2024-06-30 14:59:33,991 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.processContents(MenuManagerRenderer.java:655)
+2024-06-30 14:59:33,991 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.subscribeTopicChildAdded(MenuManagerRenderer.java:325)
+2024-06-30 14:59:33,991 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at jdk.internal.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+2024-06-30 14:59:33,991 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2024-06-30 14:59:33,991 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+2024-06-30 14:59:33,992 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+2024-06-30 14:59:33,992 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+2024-06-30 14:59:33,992 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+2024-06-30 14:59:33,992 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.syncExec(Display.java:5959)
+2024-06-30 14:59:33,992 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+2024-06-30 14:59:33,992 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.di.UIEventObjectSupplier$UIEventHandler.handleEvent(UIEventObjectSupplier.java:64)
+2024-06-30 14:59:33,993 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:208)
+2024-06-30 14:59:33,993 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:206)
+2024-06-30 14:59:33,993 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+2024-06-30 14:59:33,993 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+2024-06-30 14:59:33,993 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+2024-06-30 14:59:33,993 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:133)
+2024-06-30 14:59:33,994 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+2024-06-30 14:59:33,994 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+2024-06-30 14:59:33,994 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+2024-06-30 14:59:33,994 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:63)
+2024-06-30 14:59:33,994 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+2024-06-30 14:59:33,994 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.emf.ecore.util.EcoreEList.dispatchNotification(EcoreEList.java:249)
+2024-06-30 14:59:33,995 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.emf.common.notify.impl.NotifyingListImpl.addUnique(NotifyingListImpl.java:356)
+2024-06-30 14:59:33,995 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.emf.common.util.AbstractEList.add(AbstractEList.java:340)
+2024-06-30 14:59:33,995 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.workbench.renderers.swt.ContributionRecord.mergeIntoModel(ContributionRecord.java:253)
+2024-06-30 14:59:33,995 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.processAddition(MenuManagerRenderer.java:551)
+2024-06-30 14:59:33,995 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.generateContributions(MenuManagerRenderer.java:531)
+2024-06-30 14:59:33,995 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.workbench.renderers.swt.MenuManagerRenderer.processContributions(MenuManagerRenderer.java:499)
+2024-06-30 14:59:33,996 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.PopupMenuExtender.addMenuContributions(PopupMenuExtender.java:380)
+2024-06-30 14:59:33,996 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.PopupMenuExtender.menuAboutToShow(PopupMenuExtender.java:355)
+2024-06-30 14:59:33,996 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.MenuManager.fireAboutToShow(MenuManager.java:338)
+2024-06-30 14:59:33,996 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.MenuManager.handleAboutToShow(MenuManager.java:468)
+2024-06-30 14:59:33,996 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.MenuManager$2.menuShown(MenuManager.java:495)
+2024-06-30 14:59:33,997 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:259)
+2024-06-30 14:59:33,997 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+2024-06-30 14:59:33,997 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+2024-06-30 14:59:33,997 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+2024-06-30 14:59:33,997 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+2024-06-30 14:59:33,997 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1534)
+2024-06-30 14:59:33,998 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Menu._setVisible(Menu.java:290)
+2024-06-30 14:59:33,998 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.runPopups(Display.java:5106)
+2024-06-30 14:59:33,998 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4507)
+2024-06-30 14:59:33,998 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+2024-06-30 14:59:33,998 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+2024-06-30 14:59:33,998 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+2024-06-30 14:59:33,999 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+2024-06-30 14:59:33,999 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+2024-06-30 14:59:33,999 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+2024-06-30 14:59:33,999 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+2024-06-30 14:59:33,999 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+2024-06-30 14:59:34,000 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+2024-06-30 14:59:34,000 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+2024-06-30 14:59:34,000 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+2024-06-30 14:59:34,000 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+2024-06-30 14:59:34,000 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+2024-06-30 14:59:34,000 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+2024-06-30 14:59:34,001 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2024-06-30 14:59:34,001 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+2024-06-30 14:59:34,001 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2024-06-30 14:59:34,001 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+2024-06-30 14:59:34,001 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+2024-06-30 14:59:34,002 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+2024-06-30 14:59:34,002 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+2024-06-30 14:59:34,002 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+2024-06-30 14:59:34,136 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 2024-06-30 14:59:34.135:INFO :jee.EnvironmentImpl:main: Exodus environment created: /home/juanma/Documentos/Carrera_de_Especializacion_en_Sistemas_Embebidos/Programacion_de_microcontroladores/PdM_workspace/.metadata/.plugins/com.genuitec.copilot4eclipse/chatdata
+2024-06-30 14:59:34,278 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 2024-06-30 14:59:34.277:WARN :oejsh.ContextHandler:Worker-3: Jetty Service: o.e.j.s.ServletContextHandler@3e6c87ab{/,null,STOPPED} contextPath ends with /
+2024-06-30 14:59:34,291 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 2024-06-30 14:59:34.290:INFO :oejs.Server:Worker-3: Jetty Service: jetty-10.0.20; built: 2024-01-29T20:46:45.278Z; git: 3a745c71c23682146f262b99f4ddc4c1bc41630c; jvm 17.0.8.1+1
+2024-06-30 14:59:34,356 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 2024-06-30 14:59:34.356:INFO :oejss.DefaultSessionIdManager:Worker-3: Jetty Service: Session workerName=node0
+2024-06-30 14:59:34,360 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 2024-06-30 14:59:34.360:INFO :oejsh.ContextHandler:Worker-3: Jetty Service: Started o.e.j.s.ServletContextHandler@3e6c87ab{/chat,null,AVAILABLE}
+2024-06-30 14:59:34,364 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 2024-06-30 14:59:34.364:INFO :oejs.AbstractConnector:Worker-3: Jetty Service: Started ServerConnector@3e96d5d2{HTTP/1.1, (http/1.1)}{0.0.0.0:39827}
+2024-06-30 14:59:34,365 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 2024-06-30 14:59:34.365:INFO :oejs.Server:Worker-3: Jetty Service: Started Server@3e4df72d{STARTING}[10.0.20,sto=0] @70192ms
+2024-06-30 14:59:46,117 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 2:59:46 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 14:59:46,118 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 0.
+2024-06-30 14:59:46,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 14:59:46,120 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 2:59:46 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 14:59:46,120 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 14:59:46,120 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:00:16,118 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:00:16 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:00:16,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 0.
+2024-06-30 15:00:16,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:00:16,120 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:00:16 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:00:16,121 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:00:16,121 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:00:46,117 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:00:46 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:00:46,118 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 0.
+2024-06-30 15:00:46,118 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:00:46,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:00:46 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:00:46,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:00:46,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:01:16,116 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:01:16 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:01:16,117 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 0.
+2024-06-30 15:01:16,117 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:01:16,118 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:01:16 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:01:16,118 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:01:16,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:01:46,118 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:01:46 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:01:46,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 0.
+2024-06-30 15:01:46,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:01:46,120 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:01:46 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:01:46,121 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:01:46,121 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:02:16,117 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:02:16 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:02:16,118 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 0.
+2024-06-30 15:02:16,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:02:16,120 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:02:16 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:02:16,120 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:02:16,120 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:02:46,118 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:02:46 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:02:46,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 0.
+2024-06-30 15:02:46,119 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:02:46,121 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:02:46 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:02:46,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:02:46,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:03:16,120 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:03:16 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:03:16,120 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 0.
+2024-06-30 15:03:16,121 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:03:16,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:03:16 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:03:16,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:03:16,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:03:46,120 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:03:46 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:03:46,121 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 0.
+2024-06-30 15:03:46,121 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:03:46,121 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:03:46 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:03:46,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:03:46,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:04:16,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:04:16 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:04:16,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 0.
+2024-06-30 15:04:16,157 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:04:16,158 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:04:16 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:04:16,159 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:04:16,159 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:04:46,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:04:46 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:04:46,123 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 32187.
+2024-06-30 15:04:46,123 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:04:46,124 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:04:46 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:04:46,124 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:04:46,124 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:05:16,121 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:05:16 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:05:16,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 32187.
+2024-06-30 15:05:16,124 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:05:16,125 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:05:16 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:05:16,126 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:05:16,126 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:05:46,121 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:05:46 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:05:46,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 32187.
+2024-06-30 15:05:46,156 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:05:46,158 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:05:46 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:05:46,158 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:05:46,158 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:06:16,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:06:16 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:06:16,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 32187.
+2024-06-30 15:06:16,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:06:16,124 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:06:16 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:06:16,124 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:06:16,124 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:06:46,122 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:06:46 PM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-06-30 15:06:46,123 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 32187.
+2024-06-30 15:06:46,123 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-06-30 15:06:46,124 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Jun 30, 2024 3:06:46 PM java.util.prefs.FileSystemPreferences syncWorld
+2024-06-30 15:06:46,124 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-06-30 15:06:46,124 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
