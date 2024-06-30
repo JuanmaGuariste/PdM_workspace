@@ -8,3 +8,6 @@ Esta práctica tiene como objetivo familiarizarse con el entorno de trabajo y co
 
 En la primera parte, se implementa un programa que genera una secuencia periódica utilizando tres LEDs.
 En la segunda parte, se introduce un pulsador para cambiar el sentido de la secuencia.
+
+### Práctica 2:
+El objetivo de esta práctica es implementar un módulo de software que permita trabajar con retardos no bloqueantes en un microcontrolador. Se busca desarrollar funciones auxiliares y un programa que haga uso de estas funciones para controlar el parpadeo de un LED en la placa de desarrollo NUCLEO-F429ZI.
