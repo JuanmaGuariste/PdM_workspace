@@ -3087,3 +3087,6 @@ java.io.FileNotFoundException: /home/juanma/Documentos/Carrera_de_Especializacio
 
 !ENTRY com.genuitec.copilot4eclipse.chat 1 0 2024-06-30 14:59:39.279
 !MESSAGE Workspace labels: c
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-06-30 15:09:14.295
+!MESSAGE Indexed 'Practica_1-1' (99 sources, 208 headers) in 15.7 sec: 29,545 declarations; 93,682 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.12%)
