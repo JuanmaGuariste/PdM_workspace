@@ -31,14 +31,14 @@ Este patrón se define utilizando un vector o arreglo para cambiar los tiempos d
 Para obtener una marca de tiempo se utiliza la función `HAL_GetTick()`, que devuelve un valor que se incrementa cada 1 ms y puede ser usado como base de tiempo.
 
 
-## Para pensar luego de resolver el ejercicio:
+### Para pensar luego de resolver el ejercicio:
 
-### ¿Se pueden cambiar los tiempos de encendido de cada led fácilmente en un solo lugar del código o éstos están hardcodeados?
+#### ¿Se pueden cambiar los tiempos de encendido de cada led fácilmente en un solo lugar del código o éstos están hardcodeados?
 
-### ¿Qué bibliotecas estándar se debieron agregar para que el código compile? Si las funcionalidades crecieran, habría que pensar cuál sería el mejor lugar para incluir esas bibliotecas y algunos typedefs que se usan en el ejercicio.
+#### ¿Qué bibliotecas estándar se debieron agregar para que el código compile? Si las funcionalidades crecieran, habría que pensar cuál sería el mejor lugar para incluir esas bibliotecas y algunos typedefs que se usan en el ejercicio.
 
-### ¿Es adecuado el control de los parámetros pasados por el usuario que se hace en las funciones implementadas? ¿Se controla que sean valores válidos? ¿Se controla que estén dentro de los rangos correctos?
+#### ¿Es adecuado el control de los parámetros pasados por el usuario que se hace en las funciones implementadas? ¿Se controla que sean valores válidos? ¿Se controla que estén dentro de los rangos correctos?
 
-### ¿Cuán reutilizable es el código implementado?
+#### ¿Cuán reutilizable es el código implementado?
 
-### ¿Cuán sencillo resulta en su implementación cambiar el patrón de tiempos de parpadeo?
+#### ¿Cuán sencillo resulta en su implementación cambiar el patrón de tiempos de parpadeo?
