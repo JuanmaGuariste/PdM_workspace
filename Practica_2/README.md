@@ -31,7 +31,7 @@ Este patrón se define utilizando un vector o arreglo para cambiar los tiempos d
 Para obtener una marca de tiempo se utiliza la función `HAL_GetTick()`, que devuelve un valor que se incrementa cada 1 ms y puede ser usado como base de tiempo.
 
 
-### Para pensar luego de resolver el ejercicio:
+## Para pensar luego de resolver el ejercicio:
 
 - ¿Se pueden cambiar los tiempos de encendido de cada led fácilmente en un solo lugar del código o éstos están hardcodeados?
 
