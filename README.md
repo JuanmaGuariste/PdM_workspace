@@ -11,3 +11,6 @@ En la segunda parte, se introduce un pulsador para cambiar el sentido de la secu
 
 ### Práctica 2:
 El objetivo de esta práctica es implementar un módulo de software que permita trabajar con retardos no bloqueantes en un microcontrolador. Se busca desarrollar funciones auxiliares y un programa que haga uso de estas funciones para controlar el parpadeo de un LED en la placa de desarrollo NUCLEO-F429ZI.
+
+### Práctica 3:
+El objetivo de esta práctica es implementar un módulo de software para trabajar con retardos no bloqueantes a partir de las funciones creadas en la práctica 2. La placa de desarrollo utilizada es la NUCLEO-F429ZI.
