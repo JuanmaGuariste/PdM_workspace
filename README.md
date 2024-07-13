@@ -14,3 +14,6 @@ El objetivo de esta práctica es implementar un módulo de software que permita 
 
 ### Práctica 3:
 El objetivo de esta práctica es implementar un módulo de software para trabajar con retardos no bloqueantes a partir de las funciones creadas en la práctica 2. La placa de desarrollo utilizada es la NUCLEO-F429ZI.
+
+### Práctica 4 - Punto 1 y 2:
+El objetivo de esta práctica es implementar un MEF para trabajar con anti-rebotes por software. La placa de desarrollo utilizada es la NUCLEO-F429ZI.
