@@ -35,26 +35,26 @@ void debounceFSM_init() {
 void debounceFSM_update() {
 	switch (estadoActual) {
 		case BUTTON_UP:
-			if(!BSP_PB_GetState(BUTTON_USER)){
+			if(BSP_PB_GetState(BUTTON_USER)){
 				estadoActual = BUTTON_FALLING;
 			}
 		break;
 		case BUTTON_FALLING:
 			if(!delayRead(&debounceDelay)){
-				if(!BSP_PB_GetState(BUTTON_USER)){
+				if(BSP_PB_GetState(BUTTON_USER)){
 					buttonPressed();
 					estadoActual = BUTTON_DOWN;
 				}
 			}
 		break;
 		case BUTTON_DOWN:
-			if (BSP_PB_GetState(BUTTON_USER)) {
+			if (!BSP_PB_GetState(BUTTON_USER)) {
 				estadoActual = BUTTON_RAISING;
 			}
 		break;
 		case BUTTON_RAISING:
 			if (!delayRead(&debounceDelay)) {
-				if (BSP_PB_GetState(BUTTON_USER)) {
+				if (!BSP_PB_GetState(BUTTON_USER)) {
 					buttonReleased();
 					estadoActual = BUTTON_UP;
 				}
