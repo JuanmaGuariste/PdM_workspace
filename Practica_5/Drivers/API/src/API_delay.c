@@ -9,8 +9,8 @@
 #include "API_delay.h"
 #include "main.h"
 
-#define	MAXdELAY	60000
-#define	MINdELAY	1
+#define	MAX_DELAY	60000
+#define	MIN_DELAY	1
 
 static void delayErrorHandler(void);
 
@@ -24,7 +24,7 @@ void delayInit(delay_t *delay, tick_t duration) {
 	if (delay == NULL) { //Verify that pointer is not null
 		delayErrorHandler();
 	}
-	if (((duration > MAXdELAY) || (duration < MINdELAY))) { // Check if the duration is within the valid range
+	if (((duration > MAX_DELAY) || (duration < MIN_DELAY))) { // Check if the duration is within the valid range
 		delayErrorHandler();
 	}
 	delay->duration = duration;
@@ -40,7 +40,7 @@ bool_t delayRead(delay_t *delay) {
 	if (delay == NULL) { //Verify that pointer is not null
 		delayErrorHandler();
 	}
-	if (((delay->duration > MAXdELAY) || (delay->duration < MINdELAY))) { // Check if the duration is within the valid range
+	if (((delay->duration > MAX_DELAY) || (delay->duration < MIN_DELAY))) { // Check if the duration is within the valid range
 		delayErrorHandler();
 	}
 	tick_t currentTime = HAL_GetTick();
@@ -72,7 +72,7 @@ void delayWrite(delay_t *delay, tick_t duration) {
 	if (delay == NULL) { //Verify that pointer is not null
 		delayErrorHandler();
 	}
-	if (((duration > MAXdELAY) || (duration < MINdELAY))) { // Check if the duration is within the valid range
+	if (((duration > MAX_DELAY) || (duration < MIN_DELAY))) { // Check if the duration is within the valid range
 		delayErrorHandler();
 	}
 	delay->duration = duration;

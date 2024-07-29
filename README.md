@@ -17,3 +17,6 @@ El objetivo de esta práctica es implementar un módulo de software para trabaja
 
 ### Práctica 4 - Punto 1 y 2:
 El objetivo de esta práctica es implementar un MEF para trabajar con anti-rebotes por software. La placa de desarrollo utilizada es la NUCLEO-F429ZI.
+
+### Práctica 5:
+Implementar un módulo de software con un wrapper de la HAL para trabajar con la UART. La placa de desarrollo utilizada es la NUCLEO-F429ZI.

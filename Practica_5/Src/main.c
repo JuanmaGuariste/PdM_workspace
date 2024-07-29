@@ -85,22 +85,16 @@ int main(void) {
 
 	/* Infinite loop */
 	while (1) {
-
 		debounceFSM_update();
-
 		if (!delayRead(&blinkyDelay)) {
 			BSP_LED_Toggle(LED1);
 		}
-
 		if (readKey()) {
-			uartSendString((uint8_t*)"Mensaje\n\r");
 			delayWrite(&blinkyDelay, periodSecuence[countSequence++]);
 			if (countSequence >= MAXpERIODS) {
 				countSequence = 0;
 			}
-
 		}
-
 	}
 }
 

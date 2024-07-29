@@ -12,6 +12,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 
 /* Definition for USARTx clock resources */
 #define USARTx                           USART3
@@ -32,9 +33,13 @@
 
 
 typedef bool bool_t;
+
 bool_t uartInit();
+
 void uartSendString(uint8_t * pstring);
+
 void uartSendStringSize(uint8_t * pstring, uint16_t size);
+
 void uartReceiveStringSize(uint8_t * pstring, uint16_t size);
 
 #endif /* API_INC_API_UART_H_ */

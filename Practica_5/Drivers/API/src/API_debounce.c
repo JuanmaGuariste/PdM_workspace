@@ -9,8 +9,9 @@
 #include "API_debounce.h"
 #include "API_delay.h"
 #include "main.h"
+#include "API_uart.h"
 
-#define DEBOUNCEtIME 40
+#define DEBOUNCE_TIME 40
 
 static void setKey(void);
 static debounceState_t estadoActual;
@@ -29,7 +30,7 @@ static bool_t fallingEdge = true;
  */
 void debounceFSM_init() {
 	estadoActual = BUTTON_UP;
-	delayInit(&debounceDelay, DEBOUNCEtIME);
+	delayInit(&debounceDelay, DEBOUNCE_TIME);
 	BSP_LED_On(LED1);
 }
 
@@ -54,6 +55,7 @@ void debounceFSM_update() {
 			if(!delayRead(&debounceDelay)){
 				if(BSP_PB_GetState(BUTTON_USER)){
 					estadoActual = BUTTON_DOWN;
+					uartSendString((uint8_t*)"\nFlanco descendente detectado\n\r");
 					setKey();
 				}
 			}
@@ -67,6 +69,7 @@ void debounceFSM_update() {
 			if (!delayRead(&debounceDelay)) {
 				if (!BSP_PB_GetState(BUTTON_USER)) {
 					estadoActual = BUTTON_UP;
+					uartSendString((uint8_t*)"\nFlanco ascendente detectado\n\r");
 				}
 			}
 		break;

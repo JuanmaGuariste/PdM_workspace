@@ -8,16 +8,32 @@
 
 #include "API_uart.h"
 
+
 #define UART_TIME_OUT		0xFFFF
+#define BOUD_RATE			9600
+#define UART_BUFFER_SIZE	256
 
-static void uartError_Handler();
+static void uartErrorHandler();
+static void displaySuccessUartConfig();
+static void displayErrorUartConfig();
 
+static UART_HandleTypeDef UartHandle;
 
-UART_HandleTypeDef UartHandle;
-
+/**
+ * @brief Initializes the UART with the specified parameters.
+ *
+ * Configures the UART with the baud rate, word length, stop bits, parity,
+ * flow control, and operation mode specified. If the initialization is successful,
+ * `displaySuccessUartConfig()` is called to show the configuration parameters.
+ * If an error occurs during initialization, `displayErrorUartConfig()` and
+ * `uartErrorHandler()` are called to handle the error.
+ *
+ * @retval True if the initialization is successful.
+ * @retval False if the initialization fails.
+ */
 bool_t uartInit() {
   UartHandle.Instance        = USARTx;
-  UartHandle.Init.BaudRate   = 9600;
+  UartHandle.Init.BaudRate   = BOUD_RATE;
   UartHandle.Init.WordLength = UART_WORDLENGTH_8B;
   UartHandle.Init.StopBits   = UART_STOPBITS_1;
   UartHandle.Init.Parity     = UART_PARITY_ODD;
@@ -27,20 +43,92 @@ bool_t uartInit() {
   if (HAL_UART_Init(&UartHandle) != HAL_OK)
   {
 	/* Initialization Error */
-	  uartError_Handler();
+	  displayErrorUartConfig();
+	  uartErrorHandler();
 	  return false;
   }
+  displaySuccessUartConfig();
+
   return true;
 }
 
-void uartSendString(uint8_t *pstring){
-	HAL_UART_Transmit(&UartHandle, (uint8_t *)pstring, strlen((char*)pstring), UART_TIME_OUT);
-}
-
-static void uartError_Handler() {
-	BSP_LED_On(LED2);
-	while (1) {
+/**
+ * @brief Sends a string of characters through UART.
+ *
+ * This function sends a complete string (up to the null character '\0') through UART.
+ * It checks that the pointer to the string is not NULL and that the buffer length
+ * does not exceed the allowed size. It uses the HAL function `HAL_UART_Transmit()`
+ * to transmit the data.
+ *
+ * @param pstring Pointer to the string to be sent.
+ */
+void uartSendString(uint8_t *pstring) {
+	if (pstring == NULL) return;
+	uint8_t uartBufferLength = strlen((char*) pstring);
+	if (uartBufferLength > UART_BUFFER_SIZE)return;
+	if (HAL_OK != HAL_UART_Transmit(&UartHandle, (uint8_t*) pstring, strlen((char*) pstring), UART_TIME_OUT)) {
+		uartErrorHandler();
 	}
 }
 
+/**
+ * @brief Sends a specific number of characters through UART.
+ *
+ * This function sends a specified number of characters from the provided pointer.
+ * It checks that the pointer is not NULL and that the size does not exceed the maximum allowed size.
+ * It uses the HAL function `HAL_UART_Transmit()` to transmit the data.
+ *
+ * @param pstring Pointer to the string to be sent.
+ * @param size Number of characters to be sent.
+ */
+void uartSendStringSize(uint8_t *pstring, uint16_t size) {
+	if (pstring == NULL || size > UART_BUFFER_SIZE){
+		return;
+	}
+	if (HAL_OK != HAL_UART_Transmit(&UartHandle, pstring, size, UART_TIME_OUT)){
+		uartErrorHandler();
+	}
+}
 
+/**
+ * @brief Receives a specific number of characters through UART.
+ *
+ * This function receives a specified number of characters and stores them in the provided pointer.
+ * It checks that the pointer is not NULL, that the size is reasonable, and that the size is greater than zero.
+ * It uses the HAL function `HAL_UART_Receive()` to receive the data.
+ *
+ * @param pstring Pointer to the buffer where the received data will be stored.
+ * @param size Number of characters to be received.
+ */
+void uartReceiveStringSize(uint8_t *pstring, uint16_t size) {
+	if (pstring == NULL || size > UART_BUFFER_SIZE || 0 < size) {
+		return;
+	}
+	if (HAL_OK != HAL_UART_Receive(&UartHandle, pstring, size, UART_TIME_OUT)) {
+		uartErrorHandler();
+	}
+}
+
+static void displaySuccessUartConfig(){
+    char buffer[UART_BUFFER_SIZE];
+    snprintf(buffer, sizeof(buffer),
+    		 "\nUART Initialization Successful:\r\n"
+			 "------------------------------\r\n"
+			 "Baud Rate    : 9600\r\n"
+			 "Word Length  : 8 bits\r\n"
+			 "Stop Bits    : 1\r\n"
+			 "Parity       : Odd\r\n"
+			 "Flow Control : None\r\n");
+    uartSendString((uint8_t *) buffer);
+}
+
+static void displayErrorUartConfig(){
+	  uartSendString((uint8_t *)"UART initialization failed\r\n");
+
+}
+
+static void uartErrorHandler() {
+	while (1) {
+		BSP_LED_On(LED2);
+	}
+}
