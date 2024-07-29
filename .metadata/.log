@@ -4228,3 +4228,79 @@ org.osgi.framework.BundleException: Could not resolve module: org.eclipse.wildwe
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-07-13 18:04:30.743
 !MESSAGE Indexed 'Practica_4_Punto_1' (0 sources, 0 headers) in 0.002 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!SESSION 2024-07-29 19:49:13.637 -----------------------------------------------
+eclipse.buildId=Version 1.15.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_AR
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.wildwebdeveloper.embedder.node 4 0 2024-07-29 19:49:16.191
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.wildwebdeveloper.embedder.node [473]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=21))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1852)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1845)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1786)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1750)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1672)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-07-29 19:49:21.625
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-07-29 19:49:21.626
+!MESSAGE Log4j2 initialized with config file /home/juanma/Documentos/Carrera_de_Especializacion_en_Sistemas_Embebidos/Programacion_de_microcontroladores/PdM_workspace/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-07-29 19:49:26.239
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-07-29 19:50:22.974
+!MESSAGE Indexed 'Practica_5' (102 sources, 214 headers) in 8.21 sec: 29,972 declarations; 94,731 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.12%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-07-29 19:50:42.198
+!MESSAGE Indexed 'Ej2_uart' (99 sources, 208 headers) in 5.57 sec: 29,547 declarations; 93,746 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.12%)
+
+!ENTRY org.eclipse.jface 2 0 2024-07-29 20:11:38.232
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-29 20:11:38.232
+!MESSAGE A conflict occurred for CTRL+INSERT:
+Binding(CTRL+INSERT,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.copy,Copy,
+		,
+		Category(org.eclipse.tm.terminal.category1,Terminal view commands,Terminal view commands,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.tm.terminal.copy"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.tm.terminal.EditContext,,,system)
+Binding(CTRL+INSERT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.copy,Copy,
+		Copy the selection to the clipboard,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.copy"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+INSERT,
+	ParameterizedCommand(Command(AnsiConsole.command.copy_without_escapes,Copy Text Without ANSI Escapes,
+		Copy the console content to clipboard, removing the escape sequences,
+		Category(AnsiConsole.command.categoryid,ANSI Support Commands,null,true),
+		WorkbenchHandlerServiceHandler("AnsiConsole.command.copy_without_escapes"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.console.ConsoleView,,,system)
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2024-07-29 20:20:44.021
+!MESSAGE Jetty server started: true uri: http://127.0.1.1:40793/chat
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2024-07-29 20:20:44.144
+!MESSAGE Persistence: n/a
+
+!ENTRY com.genuitec.copilot4eclipse.chat 1 0 2024-07-29 20:20:49.213
+!MESSAGE Workspace labels: c

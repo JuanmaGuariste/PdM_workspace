@@ -72,16 +72,12 @@ int main(void) {
 	/* Initialize BSP Led for LED1*/
 	BSP_LED_Init(LED1);
 	BSP_LED_Init(LED2);
-
 	BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
-
 	debounceFSM_init();
-
 	uartInit();
 	delay_t blinkyDelay;
 	delayInit(&blinkyDelay, periodSecuence[0]);
 	uint8_t countSequence = 0;
-
 
 	/* Infinite loop */
 	while (1) {

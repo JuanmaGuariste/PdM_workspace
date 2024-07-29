@@ -4,10 +4,7 @@
  *  Created on: Jul 25, 2024
  *      Author: juanma
  */
-
-
 #include "API_uart.h"
-
 
 #define UART_TIME_OUT		0xFFFF
 #define BOUD_RATE			9600
@@ -15,7 +12,6 @@
 
 static void uartErrorHandler();
 static void displaySuccessUartConfig();
-static void displayErrorUartConfig();
 
 static UART_HandleTypeDef UartHandle;
 
@@ -25,8 +21,7 @@ static UART_HandleTypeDef UartHandle;
  * Configures the UART with the baud rate, word length, stop bits, parity,
  * flow control, and operation mode specified. If the initialization is successful,
  * `displaySuccessUartConfig()` is called to show the configuration parameters.
- * If an error occurs during initialization, `displayErrorUartConfig()` and
- * `uartErrorHandler()` are called to handle the error.
+ * If an error occurs during initialization, `uartErrorHandler()` are called to handle the error.
  *
  * @retval True if the initialization is successful.
  * @retval False if the initialization fails.
@@ -43,7 +38,6 @@ bool_t uartInit() {
   if (HAL_UART_Init(&UartHandle) != HAL_OK)
   {
 	/* Initialization Error */
-	  displayErrorUartConfig();
 	  uartErrorHandler();
 	  return false;
   }
@@ -109,6 +103,16 @@ void uartReceiveStringSize(uint8_t *pstring, uint16_t size) {
 	}
 }
 
+/**
+ * @brief Displays a message indicating successful UART configuration.
+ *
+ * This function creates a formatted string that contains the UART configuration parameters
+ * and sends it through UART. The message includes baud rate, word length, stop bits, parity,
+ * and flow control settings.
+ *
+ * @param None
+ * @retval None
+ */
 static void displaySuccessUartConfig(){
     char buffer[UART_BUFFER_SIZE];
     snprintf(buffer, sizeof(buffer),
@@ -122,11 +126,15 @@ static void displaySuccessUartConfig(){
     uartSendString((uint8_t *) buffer);
 }
 
-static void displayErrorUartConfig(){
-	  uartSendString((uint8_t *)"UART initialization failed\r\n");
-
-}
-
+/**
+ * @brief Handles UART errors by entering an infinite loop with an LED indicator.
+ *
+ * This function is called when a UART error occurs. It enters an infinite loop
+ * and continuously turns on an LED (LED2) to indicate the error state.
+ *
+ * @param None
+ * @retval None
+ */
 static void uartErrorHandler() {
 	while (1) {
 		BSP_LED_On(LED2);
