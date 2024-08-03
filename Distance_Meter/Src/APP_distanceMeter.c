@@ -5,6 +5,9 @@
  *      Author: juanma
  */
 #include "APP_distanceMeter.h"
+#include "API_lcd.h"
+#include "API_ledmatrix.h"
+#include "API_ultrasonic.h"
 
 static distanceMeterState_t currentState;
 
@@ -46,7 +49,7 @@ APP_statusTypedef distanceMeter_FSM_update() {
 			currentState = handler_waitTime();
 			break;
 		default:
-			currentState = INIT;
+			currentState = distanceMeter_FSM_init();
 			break;
 	}
 	return APP_OK;
