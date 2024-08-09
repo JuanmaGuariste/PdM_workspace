@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 #include "API_uart.h"
 #include "API_lcd.h"
+#include "API_timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -73,6 +74,7 @@ static void MX_I2C1_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+
 /* USER CODE END 0 */
 
 /**
@@ -109,16 +111,19 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  uartInit();
-  BSP_LED_Init(LED1);
-  BSP_LED_Init(LED2);
-  BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
-  LCD_init();
-  uint8_t distance = 10;
+  TIMER_init();
+  TIMER_start();
+  for (uint8_t i = 0; i < 10; i++) {
+  		HAL_GPIO_TogglePin(TRIGGER_GPIO_Port, TRIGGER_Pin);
+  		TIMER_usDelay(10);
+  	}
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  LCD_printFormattedText("Dist meter %d cm", distance);
-	  HAL_Delay(2000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -352,11 +357,15 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(TRIGGER_GPIO_Port, TRIGGER_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(USB_PowerSwitchOn_GPIO_Port, USB_PowerSwitchOn_Pin, GPIO_PIN_RESET);
@@ -373,6 +382,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : TRIGGER_Pin */
+  GPIO_InitStruct.Pin = TRIGGER_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(TRIGGER_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : USB_PowerSwitchOn_Pin */
   GPIO_InitStruct.Pin = USB_PowerSwitchOn_Pin;

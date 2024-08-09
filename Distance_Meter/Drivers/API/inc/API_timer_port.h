@@ -1,0 +1,21 @@
+/*
+ * API_timer_port.h
+ *
+ *  Created on: Aug 8, 2024
+ *      Author: juanma
+ */
+
+#ifndef API_INC_API_TIMER_PORT_H_
+#define API_INC_API_TIMER_PORT_H_
+
+#include <stdint.h>
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_it.h"
+#include "stm32f4xx_nucleo_144.h" 	/* <- BSP include */
+#include "stm32f4xx_hal_tim.h"
+
+void TIMER_portStart();
+void TIMER_portInit(void);
+void TIMER_portDelay(uint32_t time);
+
+#endif /* API_INC_API_TIMER_PORT_H_ */
