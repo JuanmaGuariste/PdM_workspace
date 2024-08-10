@@ -26,6 +26,7 @@
 #include "API_lcd.h"
 #include "API_timer.h"
 #include "API_ultrasonic.h"
+#include "APP_distanceMeter.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -69,7 +70,6 @@ static void MX_USART3_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
-float distancia = 0.0;
 
 /* USER CODE END PFP */
 
@@ -111,27 +111,13 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  BSP_LED_Init(LED1);
-  TIMER_init();
-  TIMER_start();
-  LCD_init();
-  LCD_clear();
-  ULTRASONIC_init();
+  distanceMeter_FSM_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1) {
-		BSP_LED_Toggle(LED1);
-		LCD_clear();
-		distancia = ULTRASONIC_getDistance();
-		if (distancia < 100) {
-			LCD_printFormattedText("DISTANCIA: %d.%02d", distancia);
-		} else {
-			LCD_printText("Sin obstaculos");
-		}
-		HAL_Delay(1000);
-
+		distanceMeter_FSM_update();
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */

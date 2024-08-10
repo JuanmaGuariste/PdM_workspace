@@ -12,6 +12,8 @@
 
 
 void ULTRASONIC_init();
-float ULTRASONIC_getDistance();
+void ULTRASONIC_triggerSignal();
+float ULTRASONIC_readEchoSignal();
 float ULTRASONIC_portReadEchoSignal();
+
 #endif /* API_INC_API_ULTRASONIC_H_ */
