@@ -13,9 +13,15 @@
 #include "stm32f4xx_it.h"
 #include "stm32f4xx_nucleo_144.h" 	/* <- BSP include */
 #include "stm32f4xx_hal_tim.h"
+#include "main.h"
+
 
 void TIMER_portStart();
 void TIMER_portInit(void);
 void TIMER_portDelay(uint32_t time);
+void TIMER_captureEdges(void);
+void TIMER_portEnableInterrupt();
+float TIMER_getPulseDuration(void);
+void TIMER_portStartInterrupt();
 
 #endif /* API_INC_API_TIMER_PORT_H_ */

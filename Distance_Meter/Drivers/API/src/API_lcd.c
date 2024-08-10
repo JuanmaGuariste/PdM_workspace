@@ -125,9 +125,21 @@ LCD_StatusTypedef LCD_printText(char *ptrText) {
  * @param number Number to include in the text.
  * @return LCD_StatusTypedef Returns LCD_OK if the text was printed correctly, otherwise LCD_FAIL.
  */
-LCD_StatusTypedef LCD_printFormattedText(const char *format, int number) {
+//LCD_StatusTypedef LCD_printFormattedText(const char *format, float number) {
+//    char buffer[32];
+//    sprintf(buffer, format, number);
+//    return LCD_printText(buffer);
+//}
+LCD_StatusTypedef LCD_printFormattedText(const char *format, float number) {
     char buffer[32];
-    sprintf(buffer, format, number);
+    int integerPart = (int)number;
+    int decimalPart = (int)((number - integerPart) * 100); // Two decimal places
+
+    if (decimalPart < 0) {
+        decimalPart = -decimalPart; // Handle negative numbers
+    }
+
+    sprintf(buffer, format, integerPart, decimalPart);
     return LCD_printText(buffer);
 }
 

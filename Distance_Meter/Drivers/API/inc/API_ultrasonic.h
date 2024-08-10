@@ -7,7 +7,11 @@
 
 #ifndef API_INC_API_ULTRASONIC_H_
 #define API_INC_API_ULTRASONIC_H_
+#include "stm32f4xx_hal.h"
+#include "API_ultrasonic_port.h"
 
 
-
+void ULTRASONIC_init();
+float ULTRASONIC_getDistance();
+float ULTRASONIC_portReadEchoSignal();
 #endif /* API_INC_API_ULTRASONIC_H_ */

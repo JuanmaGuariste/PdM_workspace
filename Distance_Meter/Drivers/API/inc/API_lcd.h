@@ -69,6 +69,6 @@ LCD_StatusTypedef LCD_init();
 LCD_StatusTypedef LCD_clear();
 LCD_StatusTypedef LCD_setCursor(uint8_t row, uint8_t col);
 LCD_StatusTypedef LCD_printText(char *ptrText);
-LCD_StatusTypedef LCD_printFormattedText(const char *format, int number);
+LCD_StatusTypedef LCD_printFormattedText(const char *format, float number);
 
 #endif /* API_INC_API_LCD_H_ */

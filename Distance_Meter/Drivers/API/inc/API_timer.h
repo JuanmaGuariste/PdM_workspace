@@ -20,4 +20,10 @@ void MX_TIM2_Init(void);
 void TIMER_usDelay(uint32_t time);
 void TIMER_start();
 void TIMER_init();
+uint32_t TIMER_getRisingEdge(void);
+uint32_t TIMER_getFallingEdge(void);
+float TIMER_getPulse();
+void TIMER_enableInterrupt();
+void TIMER_StartInterrupt(void);
+
 #endif /* API_INC_API_TIMER_H_ */

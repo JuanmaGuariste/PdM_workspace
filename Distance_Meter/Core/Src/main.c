@@ -25,6 +25,7 @@
 #include "API_uart.h"
 #include "API_lcd.h"
 #include "API_timer.h"
+#include "API_ultrasonic.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -68,13 +69,12 @@ static void MX_USART3_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
+float distancia = 0.0;
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-
 /* USER CODE END 0 */
 
 /**
@@ -111,23 +111,31 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+  BSP_LED_Init(LED1);
   TIMER_init();
   TIMER_start();
-  for (uint8_t i = 0; i < 10; i++) {
-  		HAL_GPIO_TogglePin(TRIGGER_GPIO_Port, TRIGGER_Pin);
-  		TIMER_usDelay(10);
-  	}
-
+  LCD_init();
+  LCD_clear();
+  ULTRASONIC_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-    /* USER CODE END WHILE */
+	while (1) {
+		BSP_LED_Toggle(LED1);
+		LCD_clear();
+		distancia = ULTRASONIC_getDistance();
+		if (distancia < 100) {
+			LCD_printFormattedText("DISTANCIA: %d.%02d", distancia);
+		} else {
+			LCD_printText("Sin obstaculos");
+		}
+		HAL_Delay(1000);
 
-    /* USER CODE BEGIN 3 */
-  }
+		/* USER CODE END WHILE */
+
+		/* USER CODE BEGIN 3 */
+	}
   /* USER CODE END 3 */
 }
 
@@ -272,6 +280,7 @@ static void MX_I2C1_Init(void)
   /* USER CODE END I2C1_Init 2 */
 
 }
+
 
 /**
   * @brief USART3 Initialization Function
