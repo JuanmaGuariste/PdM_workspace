@@ -9,12 +9,28 @@
 #define TRIGGER_DELAY			10
 
 static usDelay_t triggerDelay;
+static void initTriggerGPIO();
+
+static void initTriggerGPIO(){
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
+	  __HAL_RCC_GPIOF_CLK_ENABLE();
+	  /*Configure GPIO pin Output Level */
+	  HAL_GPIO_WritePin(TRIGGER_GPIO_Port, TRIGGER_Pin, GPIO_PIN_RESET);
+
+	  /*Configure GPIO pin : TRIGGER_Pin */
+	  GPIO_InitStruct.Pin = TRIGGER_Pin;
+	  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	  GPIO_InitStruct.Pull = GPIO_NOPULL;
+	  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	  HAL_GPIO_Init(TRIGGER_GPIO_Port, &GPIO_InitStruct);
+}
 /**
  * @brief Initializes the ultrasonic sensor port.
  * @param None
  * @retval None
  */
 void ULTRASONIC_portInit() {
+	initTriggerGPIO();
 	HAL_GPIO_WritePin(TRIGGER_GPIO_Port, TRIGGER_Pin, GPIO_PIN_RESET);
 	TIMER_StartInterrupt();
 	usDelayInit(&triggerDelay, TRIGGER_DELAY);
