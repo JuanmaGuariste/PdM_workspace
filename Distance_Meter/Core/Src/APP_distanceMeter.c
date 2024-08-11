@@ -46,6 +46,7 @@ APP_statusTypedef distanceMeter_FSM_init() {
 	LCD_init();
 	LCD_clear();
 	ULTRASONIC_init();
+	LEDMATRIX_init();
 	currentState = TRIGGER_SENSOR;
 	delayInit(&measurementDelay, MEASUREMENT_DELAY);
 	return APP_OK;
@@ -162,6 +163,18 @@ static distanceMeterState_t handler_displayDistance(){
  * @retval distanceMeterState_t Next state.
  */
 static distanceMeterState_t handler_updateLeds(){
+	float distance = getDistanceUltrasonicData();
+	    if (distance < 5) {
+	    	MATRIXLED_display(DISTANCE_VERY_CLOSE);
+	    } else if (distance < 10) {
+	    	MATRIXLED_display(DISTANCE_CLOSE);
+	    } else if (distance < 15) {
+	    	MATRIXLED_display(DISTANCE_FAR);
+	    } else if (distance < 20) {
+	    	MATRIXLED_display(DISTANCE_VERY_FAR);
+	    } else {
+	    	MATRIXLED_display(NO_OBSTACLE_DETECTED);
+	    }
 	return WAIT_TIME;
 }
 

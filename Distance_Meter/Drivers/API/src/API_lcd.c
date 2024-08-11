@@ -47,7 +47,6 @@ LCD_StatusTypedef LCD_init(){
 		LCD_delay(DELAY1ms);
 		if (LCD_sendMsg(LCD_INIT_CMD[index], COMMAND) == LCD_FAIL) return LCD_FAIL;
 	}
-
 	return LCD_OK;
 }
 
@@ -125,11 +124,6 @@ LCD_StatusTypedef LCD_printText(char *ptrText) {
  * @param number Number to include in the text.
  * @return LCD_StatusTypedef Returns LCD_OK if the text was printed correctly, otherwise LCD_FAIL.
  */
-//LCD_StatusTypedef LCD_printFormattedText(const char *format, float number) {
-//    char buffer[32];
-//    sprintf(buffer, format, number);
-//    return LCD_printText(buffer);
-//}
 LCD_StatusTypedef LCD_printFormattedText(const char *format, float number) {
     char buffer[32];
     int integerPart = (int)number;
@@ -138,7 +132,6 @@ LCD_StatusTypedef LCD_printFormattedText(const char *format, float number) {
     if (decimalPart < 0) {
         decimalPart = -decimalPart; // Handle negative numbers
     }
-
     sprintf(buffer, format, integerPart, decimalPart);
     return LCD_printText(buffer);
 }
