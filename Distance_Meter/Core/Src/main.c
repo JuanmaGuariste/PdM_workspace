@@ -21,10 +21,6 @@
 #include "string.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "API_uart.h"
-#include "API_lcd.h"
-#include "API_timer.h"
-#include "API_ultrasonic.h"
 #include "APP_distanceMeter.h"
 /* USER CODE END Includes */
 

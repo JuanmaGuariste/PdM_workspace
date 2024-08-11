@@ -9,6 +9,8 @@
 #define API_INC_API_ULTRASONIC_H_
 #include "stm32f4xx_hal.h"
 #include "API_ultrasonic_port.h"
+typedef bool bool_t;
+
 
 
 void ULTRASONIC_init();

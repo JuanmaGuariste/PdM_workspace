@@ -12,6 +12,9 @@
 #include "API_timer.h"
 #include "stdbool.h"
 
+#define TRIGGER_Pin GPIO_PIN_12
+#define TRIGGER_GPIO_Port GPIOF
+
 void ULTRASONIC_portInit();
 bool_t ULTRASONIC_portTriggerSignal();
 

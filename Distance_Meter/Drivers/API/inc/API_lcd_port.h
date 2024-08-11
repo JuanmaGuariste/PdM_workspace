@@ -11,7 +11,6 @@
 #include "stdint.h"
 #include "stdbool.h"
 #include "stm32f4xx_hal.h"
-#include "main.h"
 #include "API_uart.h"
 
 #define LCD_ADDRESS					0x27

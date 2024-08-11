@@ -13,7 +13,6 @@
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_it.h"
 #include "stm32f4xx_hal_tim.h"
-#include "main.h"
 
 
 void TIMER_portStart();
