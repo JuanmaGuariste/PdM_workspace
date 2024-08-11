@@ -23,5 +23,6 @@ void TIMER_captureEdges(void);
 void TIMER_portEnableInterrupt();
 float TIMER_getPulseDuration(void);
 void TIMER_portStartInterrupt();
+uint32_t TIMER_portGetTimerCounter();
 
 #endif /* API_INC_API_TIMER_PORT_H_ */

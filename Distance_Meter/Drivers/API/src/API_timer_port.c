@@ -15,7 +15,6 @@ static void TIMER_setSecondEdgeTime(uint32_t time);
 static void TIMER_setPulseDuration(float duration);
 static void TIMER_errorHandler(void);
 static void TIMER_portReStartTimerCounter();
-static uint32_t TIMER_portGetTimerCounter();
 
 TIM_HandleTypeDef TIM2_HANDLE;
 
@@ -121,7 +120,7 @@ static void TIMER_portReStartTimerCounter() {
  * @param None
  * @retval uint32_t The value of the timer counter after restarting (typically 0).
  */
-static uint32_t TIMER_portGetTimerCounter() {
+uint32_t TIMER_portGetTimerCounter() {
 	return __HAL_TIM_GET_COUNTER(&TIM2_HANDLE);
 }
 

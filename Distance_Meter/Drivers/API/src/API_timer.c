@@ -7,6 +7,49 @@
 
 #include "API_timer.h"
 
+#define	MAX_DELAY_US	60000
+#define	MIN_DELAY_US	1
+
+static void usDelayErrorHandler(void);
+
+
+void usDelayInit(usDelay_t *delay, tick_t duration) {
+	if (delay == NULL) { //Verify that pointer is not null
+		usDelayErrorHandler();
+	}
+	if (((duration > MAX_DELAY_US) || (duration < MIN_DELAY_US))) { // Check if the duration is within the valid range
+		usDelayErrorHandler();
+	}
+	delay->usDuration = duration;
+	delay->usRunning = false;
+}
+
+bool_t usDelayRead(usDelay_t *delay) {
+	if (delay == NULL) { //Verify that pointer is not null
+		usDelayErrorHandler();
+	}
+	if (((delay->usDuration > MAX_DELAY_US) || (delay->usDuration < MIN_DELAY_US))) { // Check if the duration is within the valid range
+		usDelayErrorHandler();
+	}
+	tick_t currentTime =  TIMER_portGetTimerCounter();
+	bool_t timerState = false;
+	if (!(delay->usRunning)) {
+		delay->usStartTime = currentTime;
+		delay->usRunning = true;
+		timerState = true;
+	} else {
+		if ((currentTime - delay->usStartTime) >= delay->usDuration) {
+			timerState = false;
+			delay->usRunning = false;
+		} else {
+			timerState = true;
+			delay->usRunning = true;
+		}
+	}
+
+	return timerState;
+}
+
 /**
  * @brief Introduces a delay in microseconds.
  * @param time: Time in microseconds to wait.
@@ -60,4 +103,8 @@ float TIMER_getPulse(void){
  */
 void TIMER_StartInterrupt(void){
 	TIMER_portStartInterrupt();
+}
+
+static void usDelayErrorHandler(){
+	while(1){}
 }

@@ -18,6 +18,8 @@
 #include "API_delay.h"
 
 #define MEASUREMENT_DELAY		1000
+#define TRIGGER_DELAY			10
+
 
 typedef enum {
 	INIT,

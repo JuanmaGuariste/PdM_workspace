@@ -16,6 +16,20 @@
 
 typedef bool bool_t;
 
+typedef uint32_t tick_t;
+
+typedef struct{
+   tick_t usStartTime;
+   tick_t usDuration;
+   bool_t usRunning;
+} usDelay_t;
+
+
+void usDelayInit( usDelay_t * delay, tick_t duration );
+
+bool_t usDelayRead( usDelay_t * delay );
+
+
 void MX_TIM2_Init(void);
 void TIMER_usDelay(uint32_t time);
 void TIMER_start();

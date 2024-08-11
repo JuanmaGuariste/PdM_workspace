@@ -30,6 +30,7 @@ static UltrasonicSensorData ultrasonicSensorData = { 0.0, 0.0};
 static const float speedOfSound = 0.0343 / 2;
 
 static delay_t measurementDelay;
+static usDelay_t triggerDelay;
 
 APP_statusTypedef distanceMeter_FSM_init() {
 	BSP_LED_Init(LED1);
@@ -40,6 +41,7 @@ APP_statusTypedef distanceMeter_FSM_init() {
 	ULTRASONIC_init();
 	currentState = TRIGGER_SENSOR;
 	delayInit(&measurementDelay, MEASUREMENT_DELAY);
+	usDelayInit(&triggerDelay, TRIGGER_DELAY);
 	return APP_OK;
 }
 
@@ -77,7 +79,15 @@ APP_statusTypedef distanceMeter_FSM_update() {
 
 
 static distanceMeterState_t handler_trigerSensor(){
-	ULTRASONIC_triggerSignal();
+	TRIGGER_GPIO_Port->BSRR = TRIGGER_Pin;  // Set the pin high
+//	HAL_GPIO_WritePin(TRIGGER_GPIO_Port, TRIGGER_Pin, GPIO_PIN_SET);
+	if (usDelayRead(&triggerDelay)) {
+		return TRIGGER_SENSOR;
+	}
+//	HAL_GPIO_WritePin(TRIGGER_GPIO_Port, TRIGGER_Pin, GPIO_PIN_RESET);
+	TRIGGER_GPIO_Port->BSRR = (uint32_t)TRIGGER_Pin << 16U;
+
+//	ULTRASONIC_triggerSignal();
 	return WAIT_FOR_ECHO;
 }
 
