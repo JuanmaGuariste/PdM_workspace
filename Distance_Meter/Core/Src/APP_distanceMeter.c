@@ -30,10 +30,17 @@ static UltrasonicSensorData ultrasonicSensorData = { 0.0, 0.0};
 static const float speedOfSound = 0.0343 / 2;
 
 static delay_t measurementDelay;
-static usDelay_t triggerDelay;
 
+/**
+ * @brief Initializes the distance meter FSM.
+ *
+ * Sets up the LEDs, timers, LCD, and ultrasonic sensor.
+ * Initializes the state machine to start from the TRIGGER_SENSOR state.
+ *
+ * @param None
+ * @retval APP_statusTypedef Status of the initialization.
+ */
 APP_statusTypedef distanceMeter_FSM_init() {
-	BSP_LED_Init(LED1);
 	TIMER_init();
 	TIMER_start();
 	LCD_init();
@@ -41,10 +48,17 @@ APP_statusTypedef distanceMeter_FSM_init() {
 	ULTRASONIC_init();
 	currentState = TRIGGER_SENSOR;
 	delayInit(&measurementDelay, MEASUREMENT_DELAY);
-	usDelayInit(&triggerDelay, TRIGGER_DELAY);
 	return APP_OK;
 }
 
+/**
+ * @brief Updates the distance meter FSM.
+ *
+ * Handles the transitions and actions between different states of the FSM.
+ *
+ * @param None
+ * @retval APP_statusTypedef Status of the update.
+ */
 APP_statusTypedef distanceMeter_FSM_update() {
 	switch (currentState) {
 	case TRIGGER_SENSOR:
@@ -77,24 +91,42 @@ APP_statusTypedef distanceMeter_FSM_update() {
 	return APP_OK;
 }
 
-
+/**
+ * @brief Handler for the TRIGGER_SENSOR state.
+ *
+ * Triggers the ultrasonic sensor to send a pulse.
+ *
+ * @param None
+ * @retval distanceMeterState_t Next state.
+ */
 static distanceMeterState_t handler_trigerSensor(){
-	TRIGGER_GPIO_Port->BSRR = TRIGGER_Pin;  // Set the pin high
-//	HAL_GPIO_WritePin(TRIGGER_GPIO_Port, TRIGGER_Pin, GPIO_PIN_SET);
-	if (usDelayRead(&triggerDelay)) {
+	if (!ULTRASONIC_triggerSignal()){
 		return TRIGGER_SENSOR;
 	}
-//	HAL_GPIO_WritePin(TRIGGER_GPIO_Port, TRIGGER_Pin, GPIO_PIN_RESET);
-	TRIGGER_GPIO_Port->BSRR = (uint32_t)TRIGGER_Pin << 16U;
-
-//	ULTRASONIC_triggerSignal();
 	return WAIT_FOR_ECHO;
 }
 
+/**
+ * @brief Handler for the WAIT_FOR_ECHO state.
+ *
+ * Reads the echo signal duration from the ultrasonic sensor.
+ *
+ * @param None
+ * @retval distanceMeterState_t Next state.
+ */
 static distanceMeterState_t handler_waitForEcho(){
 	setTimeUltrasonicData(ULTRASONIC_readEchoSignal());
 	return MEASURE_DISTANCE;
 }
+
+/**
+ * @brief Handler for the MEASURE_DISTANCE state.
+ *
+ * Converts the echo signal duration to distance.
+ *
+ * @param None
+ * @retval distanceMeterState_t Next state.
+ */
 static distanceMeterState_t handler_measureDistance(){
 	float time = getTimeUltrasonicData();
 	float distance = timeToDistanceConvertion(time);
@@ -102,6 +134,14 @@ static distanceMeterState_t handler_measureDistance(){
 	return DISPLAY_DISTANCE;
 }
 
+/**
+ * @brief Handler for the DISPLAY_DISTANCE state.
+ *
+ * Displays the measured distance on the LCD.
+ *
+ * @param None
+ * @retval distanceMeterState_t Next state.
+ */
 static distanceMeterState_t handler_displayDistance(){
 	float distance = getDistanceUltrasonicData();
 	LCD_clear();
@@ -113,10 +153,26 @@ static distanceMeterState_t handler_displayDistance(){
 	return UPDATE_LEDS;
 }
 
+/**
+ * @brief Handler for the UPDATE_LEDS state.
+ *
+ * Updates the matrix LEDs based on the measured distance.
+ *
+ * @param None
+ * @retval distanceMeterState_t Next state.
+ */
 static distanceMeterState_t handler_updateLeds(){
 	return WAIT_TIME;
 }
 
+/**
+ * @brief Handler for the WAIT_TIME state.
+ *
+ * Waits for a specified delay before triggering the next measurement.
+ *
+ * @param None
+ * @retval distanceMeterState_t Next state.
+ */
 static distanceMeterState_t handler_waitTime() {
 	if (delayRead(&measurementDelay)) {
 		return WAIT_TIME;
@@ -124,18 +180,42 @@ static distanceMeterState_t handler_waitTime() {
 	return TRIGGER_SENSOR;
 }
 
+/**
+ * @brief Sets the measured time.
+ *
+ * @param time Measured time in microseconds.
+ * @retval None
+ */
 static void setTimeUltrasonicData(float time){
 	ultrasonicSensorData.time = time;
 }
 
+/**
+ * @brief Gets the measured time.
+ *
+ * @param None
+ * @retval float Measured time in microseconds.
+ */
 static float getTimeUltrasonicData(){
 	return ultrasonicSensorData.time;
 }
 
+/**
+ * @brief Sets the measured distance.
+ *
+ * @param distance Measured distance in centimeters.
+ * @retval None
+ */
 static void setDistanceUltrasonicData(float distance){
 	ultrasonicSensorData.distance = distance;
 }
 
+/**
+ * @brief Gets the measured distance.
+ *
+ * @param None
+ * @retval float Measured distance in centimeters.
+ */
 static float getDistanceUltrasonicData(){
 	return ultrasonicSensorData.distance;
 }

@@ -137,7 +137,6 @@ static void displaySuccessUartConfig(){
  */
 static void uartErrorHandler() {
 	while (1) {
-		BSP_LED_On(LED2);
 	}
 }
 

@@ -12,23 +12,39 @@
 
 static void usDelayErrorHandler(void);
 
-
+/**
+ * @brief Initializes the microsecond delay structure.
+ *
+ * Sets up the delay structure with a specified duration.
+ *
+ * @param delay Pointer to the usDelay_t structure.
+ * @param duration Duration of the delay in microseconds.
+ * @retval None
+ */
 void usDelayInit(usDelay_t *delay, tick_t duration) {
-	if (delay == NULL) { //Verify that pointer is not null
+	if (delay == NULL) {
 		usDelayErrorHandler();
 	}
-	if (((duration > MAX_DELAY_US) || (duration < MIN_DELAY_US))) { // Check if the duration is within the valid range
+	if (((duration > MAX_DELAY_US) || (duration < MIN_DELAY_US))) {
 		usDelayErrorHandler();
 	}
 	delay->usDuration = duration;
 	delay->usRunning = false;
 }
 
+/**
+ * @brief Reads the microsecond delay status.
+ *
+ * Checks if the specified delay time has elapsed.
+ *
+ * @param delay Pointer to the usDelay_t structure.
+ * @retval bool_t `true` if the delay is still running, `false` if the delay has elapsed.
+ */
 bool_t usDelayRead(usDelay_t *delay) {
-	if (delay == NULL) { //Verify that pointer is not null
+	if (delay == NULL) {
 		usDelayErrorHandler();
 	}
-	if (((delay->usDuration > MAX_DELAY_US) || (delay->usDuration < MIN_DELAY_US))) { // Check if the duration is within the valid range
+	if (((delay->usDuration > MAX_DELAY_US) || (delay->usDuration < MIN_DELAY_US))) {
 		usDelayErrorHandler();
 	}
 	tick_t currentTime =  TIMER_portGetTimerCounter();
@@ -52,16 +68,17 @@ bool_t usDelayRead(usDelay_t *delay) {
 
 /**
  * @brief Introduces a delay in microseconds.
- * @param time: Time in microseconds to wait.
+ *
+ * @param time Time in microseconds to wait.
  * @retval None
  */
 void TIMER_usDelay(uint32_t time){
 	TIMER_portDelay(time);
 }
 
-
 /**
  * @brief Starts the timer.
+ *
  * @param None
  * @retval None
  */
@@ -71,6 +88,9 @@ void TIMER_start(){
 
 /**
  * @brief Initializes the timer.
+ *
+ * Sets up the timer for use.
+ *
  * @param None
  * @retval None
  */
@@ -80,6 +100,9 @@ void TIMER_init(){
 
 /**
  * @brief Enables timer interrupts.
+ *
+ * Allows the timer to generate interrupts.
+ *
  * @param None
  * @retval None
  */
@@ -89,8 +112,11 @@ void TIMER_enableInterrupt(){
 
 /**
  * @brief Gets the captured pulse duration.
+ *
+ * Retrieves the duration of the pulse measured by the timer.
+ *
  * @param None
- * @retval Pulse duration in microseconds.
+ * @retval float Pulse duration in microseconds.
  */
 float TIMER_getPulse(void){
 	return TIMER_getPulseDuration();
@@ -98,6 +124,9 @@ float TIMER_getPulse(void){
 
 /**
  * @brief Starts the timer interrupt capture.
+ *
+ * Enables the timer to start capturing interrupts.
+ *
  * @param None
  * @retval None
  */
@@ -105,6 +134,14 @@ void TIMER_StartInterrupt(void){
 	TIMER_portStartInterrupt();
 }
 
+/**
+ * @brief Error handler for microsecond delay functions.
+ *
+ * Handles errors in the microsecond delay functions.
+ *
+ * @param None
+ * @retval None
+ */
 static void usDelayErrorHandler(){
 	while(1){}
 }

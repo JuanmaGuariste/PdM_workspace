@@ -12,7 +12,7 @@
 
 
 void ULTRASONIC_init();
-void ULTRASONIC_triggerSignal();
+bool_t ULTRASONIC_triggerSignal();
 float ULTRASONIC_readEchoSignal();
 float ULTRASONIC_portReadEchoSignal();
 

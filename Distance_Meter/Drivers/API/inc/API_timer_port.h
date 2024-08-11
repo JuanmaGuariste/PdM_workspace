@@ -1,4 +1,5 @@
-/*
+/*//		BSP_LED_On(LED2);
+ *
  * API_timer_port.h
  *
  *  Created on: Aug 8, 2024
@@ -11,7 +12,6 @@
 #include <stdint.h>
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_it.h"
-#include "stm32f4xx_nucleo_144.h" 	/* <- BSP include */
 #include "stm32f4xx_hal_tim.h"
 #include "main.h"
 

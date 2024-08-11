@@ -10,8 +10,9 @@
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_hal_tim.h"
 #include "API_timer.h"
+#include "stdbool.h"
 
 void ULTRASONIC_portInit();
-void ULTRASONIC_portTriggerSignal();
+bool_t ULTRASONIC_portTriggerSignal();
 
 #endif /* API_INC_API_ULTRASONIC_PORT_H_ */

@@ -8,7 +8,6 @@
 #ifndef API_INC_API_UART_H_
 #define API_INC_API_UART_H_
 #include "stm32f4xx_hal.h"
-#include "stm32f4xx_nucleo_144.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
