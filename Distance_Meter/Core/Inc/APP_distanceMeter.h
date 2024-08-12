@@ -19,7 +19,8 @@
 
 #define MEASUREMENT_DELAY		500
 
-typedef enum {
+typedef enum
+{
 	INIT,
 	TRIGGER_SENSOR,
 	WAIT_FOR_ECHO,
@@ -35,8 +36,6 @@ typedef enum {
 } APP_statusTypedef;
 
 APP_statusTypedef distanceMeter_FSM_init();
-
-APP_statusTypedef distanceMeter_FSM_update();
-
+APP_statusTypedef distanceMeter_FSM_update(void);
 
 #endif /* INC_APP_DISTANCEMETER_H_ */

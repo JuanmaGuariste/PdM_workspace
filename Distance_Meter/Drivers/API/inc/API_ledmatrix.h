@@ -13,6 +13,20 @@
 #include "stm32f4xx_hal_def.h"
 #include "stm32f4xx_hal_spi.h"
 
+/*Register Address Map*/
+#define DECODE_MODE				0x09
+#define INTENSITY				0x0A
+#define SCAN_LIMIT				0x0B
+#define SHUT_DOWN				0x0C
+#define DISPLAY_TEST			0x0F
+
+/*Register Data Map*/
+#define NO_DECODE 				0x00
+#define DUTY_CYCLE				0x0F
+#define AMOUNT_OF_COLUMNS		0x07
+#define NORMAL_OPERATION		0x01
+#define DISPLAY_TEST_MODE		0x00
+
 typedef enum {
 	LED_MATRIX_OK,
 	LED_MATRIX_FAIL

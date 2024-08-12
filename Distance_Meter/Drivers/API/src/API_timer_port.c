@@ -14,11 +14,12 @@ static uint32_t TIMER_getFirstEdgeTime(void);
 static void TIMER_setSecondEdgeTime(uint32_t time);
 static void TIMER_setPulseDuration(float duration);
 static void TIMER_errorHandler(void);
-static void TIMER_portReStartTimerCounter();
+static void TIMER_portReStartTimerCounter(void);
 
 TIM_HandleTypeDef TIM2_HANDLE;
 
-typedef struct {
+typedef struct
+{
 	uint8_t captureIdx;
 	uint32_t firstEdgeTime;
 	uint32_t secondEdgeTime;
@@ -32,7 +33,9 @@ static TimerCaptureData timerCaptureData = { 0, 0, 0, 0 };
  * @param None
  * @retval None
  */
-void TIMER_portStart() {
+void
+TIMER_portStart (void)
+{
 	HAL_TIM_Base_Start(&TIM2_HANDLE);
 }
 
@@ -41,7 +44,9 @@ void TIMER_portStart() {
  * @param None
  * @retval None
  */
-void TIMER_portInit(void) {
+void
+TIMER_portInit (void)
+{
 	TIM_ClockConfigTypeDef sClockSourceConfig = { 0 };
 	TIM_MasterConfigTypeDef sMasterConfig = { 0 };
 	TIM_IC_InitTypeDef sConfigIC = { 0 };
@@ -52,29 +57,31 @@ void TIMER_portInit(void) {
 	TIM2_HANDLE.Init.Period = 4294967295;
 	TIM2_HANDLE.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
 	TIM2_HANDLE.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-	if (HAL_TIM_Base_Init(&TIM2_HANDLE) != HAL_OK) {
+	if (HAL_TIM_Base_Init(&TIM2_HANDLE) != HAL_OK)
+	{
 		TIMER_errorHandler();
 	}
 	sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-	if (HAL_TIM_ConfigClockSource(&TIM2_HANDLE, &sClockSourceConfig)
-			!= HAL_OK) {
+	if (HAL_TIM_ConfigClockSource(&TIM2_HANDLE, &sClockSourceConfig) != HAL_OK)
+	{
 		TIMER_errorHandler();
 	}
-	if (HAL_TIM_IC_Init(&TIM2_HANDLE) != HAL_OK) {
+	if (HAL_TIM_IC_Init(&TIM2_HANDLE) != HAL_OK)
+	{
 		TIMER_errorHandler();
 	}
 	sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
 	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-	if (HAL_TIMEx_MasterConfigSynchronization(&TIM2_HANDLE, &sMasterConfig)
-			!= HAL_OK) {
+	if (HAL_TIMEx_MasterConfigSynchronization(&TIM2_HANDLE, &sMasterConfig) != HAL_OK)
+	{
 		TIMER_errorHandler();
 	}
 	sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_BOTHEDGE;
 	sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
 	sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
 	sConfigIC.ICFilter = 4;
-	if (HAL_TIM_IC_ConfigChannel(&TIM2_HANDLE, &sConfigIC, TIM_CHANNEL_1)
-			!= HAL_OK) {
+	if (HAL_TIM_IC_ConfigChannel(&TIM2_HANDLE, &sConfigIC, TIM_CHANNEL_1) != HAL_OK)
+	{
 		TIMER_errorHandler();
 	}
 }
@@ -84,7 +91,9 @@ void TIMER_portInit(void) {
  * @param None
  * @retval None
  */
-void TIMER_portEnableInterrupt() {
+void
+TIMER_portEnableInterrupt (void)
+{
 	__HAL_TIM_ENABLE_IT(&TIM2_HANDLE, TIM_IT_CC1);
 }
 
@@ -93,7 +102,9 @@ void TIMER_portEnableInterrupt() {
  * @param None
  * @retval None
  */
-void TIMER_portDisableInterrupt() {
+void
+TIMER_portDisableInterrupt (void)
+{
 	__HAL_TIM_DISABLE_IT(&TIM2_HANDLE, TIM_IT_CC1);
 }
 
@@ -102,7 +113,9 @@ void TIMER_portDisableInterrupt() {
  * @param None
  * @retval None
  */
-void TIMER_portStartInterrupt() {
+void
+TIMER_portStartInterrupt (void)
+{
 	HAL_TIM_IC_Start_IT(&TIM2_HANDLE, TIM_CHANNEL_1);
 }
 
@@ -111,7 +124,9 @@ void TIMER_portStartInterrupt() {
  * @param None
  * @retval None
  */
-static void TIMER_portReStartTimerCounter() {
+static void
+TIMER_portReStartTimerCounter (void)
+{
 	__HAL_TIM_SET_COUNTER(&TIM2_HANDLE, 0);
 }
 
@@ -120,8 +135,10 @@ static void TIMER_portReStartTimerCounter() {
  * @param None
  * @retval uint32_t The value of the timer counter after restarting (typically 0).
  */
-uint32_t TIMER_portGetTimerCounter() {
-	return __HAL_TIM_GET_COUNTER(&TIM2_HANDLE);
+uint32_t
+TIMER_portGetTimerCounter (void)
+{
+	return (__HAL_TIM_GET_COUNTER(&TIM2_HANDLE));
 }
 
 /**
@@ -129,17 +146,26 @@ uint32_t TIMER_portGetTimerCounter() {
  * @param TIM2_HANDLE: TIM2 timer handle.
  * @retval None
  */
-void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *TIM2_HANDLE) {
-	if (TIM2_HANDLE->Channel == HAL_TIM_ACTIVE_CHANNEL_1) {
-		if (TIMER_getCaptureIdx() == 0) {
+void
+HAL_TIM_IC_CaptureCallback (TIM_HandleTypeDef *TIM2_HANDLE)
+{
+	if (TIM2_HANDLE->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
+	{
+		if (TIMER_getCaptureIdx() == 0)
+		{
 			TIMER_setFirstEdgeTime(HAL_TIM_ReadCapturedValue(TIM2_HANDLE, TIM_CHANNEL_1));
 			TIMER_setCaptureIdx(1);
-		} else if (TIMER_getCaptureIdx() == 1) {
+		}
+		else if (TIMER_getCaptureIdx() == 1)
+		{
 			TIMER_setSecondEdgeTime(HAL_TIM_ReadCapturedValue(TIM2_HANDLE, TIM_CHANNEL_1));
 			TIMER_portReStartTimerCounter();
-			if (TIMER_getSecondEdgeTime() > TIMER_getFirstEdgeTime()) {
+			if (TIMER_getSecondEdgeTime() > TIMER_getFirstEdgeTime())
+			{
 				TIMER_setPulseDuration(TIMER_getSecondEdgeTime() - TIMER_getFirstEdgeTime());
-			} else {
+			}
+			else
+			{
 				TIMER_setPulseDuration(0);
 			}
 			TIMER_setCaptureIdx(0);
@@ -153,7 +179,9 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *TIM2_HANDLE) {
  * @param None
  * @retval None
  */
-void TIM2_IRQHandler(void) {
+void
+TIM2_IRQHandler (void)
+{
 	HAL_TIM_IRQHandler(&TIM2_HANDLE);
 }
 
@@ -162,7 +190,9 @@ void TIM2_IRQHandler(void) {
  * @param time: Time in microseconds to wait.
  * @retval None
  */
-void TIMER_portDelay(uint32_t time) {
+void
+TIMER_portDelay (uint32_t time)
+{
 	TIMER_portReStartTimerCounter();
 	while (TIMER_portGetTimerCounter() < time);
 }
@@ -172,8 +202,10 @@ void TIMER_portDelay(uint32_t time) {
  * @param None
  * @retval Capture index.
  */
-static uint8_t TIMER_getCaptureIdx(void) {
-	return timerCaptureData.captureIdx;
+static uint8_t
+TIMER_getCaptureIdx (void)
+{
+	return (timerCaptureData.captureIdx);
 }
 
 /**
@@ -181,7 +213,9 @@ static uint8_t TIMER_getCaptureIdx(void) {
  * @param idx: Capture index.
  * @retval None
  */
-static void TIMER_setCaptureIdx(uint8_t idx) {
+static void
+TIMER_setCaptureIdx (uint8_t idx)
+{
 	timerCaptureData.captureIdx = idx;
 }
 
@@ -190,8 +224,10 @@ static void TIMER_setCaptureIdx(uint8_t idx) {
  * @param None
  * @retval First capture time.
  */
-static uint32_t TIMER_getFirstEdgeTime(void) {
-	return timerCaptureData.firstEdgeTime;
+static uint32_t
+TIMER_getFirstEdgeTime (void)
+{
+	return (timerCaptureData.firstEdgeTime);
 }
 
 /**
@@ -199,7 +235,9 @@ static uint32_t TIMER_getFirstEdgeTime(void) {
  * @param time: First capture time.
  * @retval None
  */
-static void TIMER_setFirstEdgeTime(uint32_t time) {
+static void
+TIMER_setFirstEdgeTime (uint32_t time)
+{
 	timerCaptureData.firstEdgeTime = time;
 }
 
@@ -208,7 +246,9 @@ static void TIMER_setFirstEdgeTime(uint32_t time) {
  * @param None
  * @retval Second capture time.
  */
-static uint32_t TIMER_getSecondEdgeTime(void) {
+static uint32_t
+TIMER_getSecondEdgeTime (void)
+{
 	return timerCaptureData.secondEdgeTime;
 }
 
@@ -217,7 +257,9 @@ static uint32_t TIMER_getSecondEdgeTime(void) {
  * @param time: Second capture time.
  * @retval None
  */
-static void TIMER_setSecondEdgeTime(uint32_t time) {
+static void
+TIMER_setSecondEdgeTime (uint32_t time)
+{
 	timerCaptureData.secondEdgeTime = time;
 }
 
@@ -226,8 +268,10 @@ static void TIMER_setSecondEdgeTime(uint32_t time) {
  * @param None
  * @retval Pulse duration in microseconds.
  */
-float TIMER_getPulseDuration(void) {
-	return timerCaptureData.pulseDuration;
+float
+TIMER_getPulseDuration (void)
+{
+	return (timerCaptureData.pulseDuration);
 }
 
 /**
@@ -235,7 +279,9 @@ float TIMER_getPulseDuration(void) {
  * @param duration: Pulse duration in microseconds.
  * @retval None
  */
-static void TIMER_setPulseDuration(float duration) {
+static void
+TIMER_setPulseDuration (float duration)
+{
 	timerCaptureData.pulseDuration = duration;
 }
 
@@ -244,7 +290,10 @@ static void TIMER_setPulseDuration(float duration) {
  * @param None
  * @retval None
  */
-static void TIMER_errorHandler(void) {
-	while (1) {
+static void
+TIMER_errorHandler (void)
+{
+	while (1)
+	{
 	}
 }

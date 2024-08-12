@@ -1,5 +1,5 @@
 /*
- * API_lcd.h
+ * API_lcd.hLCD_sendNibble
  *
  *  Created on: Aug 3, 2024
  *      Author: juanma
@@ -60,7 +60,8 @@
 
 #define INT_TO_ASCII			48
 
-typedef enum {
+typedef enum
+{
 	LCD_OK,
 	LCD_FAIL
 } LCD_StatusTypedef;

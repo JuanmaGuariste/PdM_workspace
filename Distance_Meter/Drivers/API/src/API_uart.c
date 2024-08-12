@@ -6,13 +6,8 @@
  */
 #include "API_uart.h"
 
-#define UART_TIME_OUT		0xFFFF
-#define BOUD_RATE			9600
-#define UART_BUFFER_SIZE	256
-
-static void uartErrorHandler();
-static void displaySuccessUartConfig();
-
+static void uartErrorHandler(void);
+static void displaySuccessUartConfig(void);
 static UART_HandleTypeDef UartHandle;
 
 /**
@@ -26,7 +21,9 @@ static UART_HandleTypeDef UartHandle;
  * @retval True if the initialization is successful.
  * @retval False if the initialization fails.
  */
-bool_t uartInit() {
+bool_t
+uartInit (void)
+{
   UartHandle.Instance        = USARTx;
   UartHandle.Init.BaudRate   = BOUD_RATE;
   UartHandle.Init.WordLength = UART_WORDLENGTH_8B;
@@ -39,11 +36,10 @@ bool_t uartInit() {
   {
 	/* Initialization Error */
 	  uartErrorHandler();
-	  return false;
+	  return (false);
   }
   displaySuccessUartConfig();
-
-  return true;
+  return (true);
 }
 
 /**
@@ -56,11 +52,14 @@ bool_t uartInit() {
  *
  * @param pstring Pointer to the string to be sent.
  */
-void uartSendString(uint8_t *pstring) {
+void
+uartSendString (uint8_t *pstring)
+{
 	if (pstring == NULL) return;
 	uint8_t uartBufferLength = strlen((char*) pstring);
-	if (uartBufferLength > UART_BUFFER_SIZE)return;
-	if (HAL_OK != HAL_UART_Transmit(&UartHandle, (uint8_t*) pstring, strlen((char*) pstring), UART_TIME_OUT)) {
+	if (uartBufferLength > UART_BUFFER_SIZE) return;
+	if (HAL_OK != HAL_UART_Transmit(&UartHandle, (uint8_t*) pstring, strlen((char*) pstring), UART_TIME_OUT))
+	{
 		uartErrorHandler();
 	}
 }
@@ -75,11 +74,15 @@ void uartSendString(uint8_t *pstring) {
  * @param pstring Pointer to the string to be sent.
  * @param size Number of characters to be sent.
  */
-void uartSendStringSize(uint8_t *pstring, uint16_t size) {
-	if (pstring == NULL || size > UART_BUFFER_SIZE){
+void
+uartSendStringSize (uint8_t *pstring, uint16_t size)
+{
+	if (pstring == NULL || size > UART_BUFFER_SIZE)
+	{
 		return;
 	}
-	if (HAL_OK != HAL_UART_Transmit(&UartHandle, pstring, size, UART_TIME_OUT)){
+	if (HAL_OK != HAL_UART_Transmit(&UartHandle, pstring, size, UART_TIME_OUT))
+	{
 		uartErrorHandler();
 	}
 }
@@ -94,11 +97,15 @@ void uartSendStringSize(uint8_t *pstring, uint16_t size) {
  * @param pstring Pointer to the buffer where the received data will be stored.
  * @param size Number of characters to be received.
  */
-void uartReceiveStringSize(uint8_t *pstring, uint16_t size) {
-	if (pstring == NULL || size > UART_BUFFER_SIZE || 0 < size) {
+void
+uartReceiveStringSize (uint8_t *pstring, uint16_t size)
+{
+	if (pstring == NULL || size > UART_BUFFER_SIZE || 0 < size)
+	{
 		return;
 	}
-	if (HAL_OK != HAL_UART_Receive(&UartHandle, pstring, size, UART_TIME_OUT)) {
+	if (HAL_OK != HAL_UART_Receive(&UartHandle, pstring, size, UART_TIME_OUT))
+	{
 		uartErrorHandler();
 	}
 }
@@ -113,7 +120,9 @@ void uartReceiveStringSize(uint8_t *pstring, uint16_t size) {
  * @param None
  * @retval None
  */
-static void displaySuccessUartConfig(){
+static void
+displaySuccessUartConfig(void)
+{
     char buffer[UART_BUFFER_SIZE];
     snprintf(buffer, sizeof(buffer),
     		 "\nUART Initialization Successful:\r\n"
@@ -135,8 +144,11 @@ static void displaySuccessUartConfig(){
  * @param None
  * @retval None
  */
-static void uartErrorHandler() {
-	while (1) {
+static void
+uartErrorHandler(void)
+{
+	while (1)
+	{
 	}
 }
 

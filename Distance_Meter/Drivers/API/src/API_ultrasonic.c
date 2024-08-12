@@ -14,7 +14,9 @@
  * @param None
  * @retval None
  */
-void ULTRASONIC_init() {
+void
+ULTRASONIC_init (void)
+{
 	ULTRASONIC_portInit();
 }
 
@@ -24,8 +26,10 @@ void ULTRASONIC_init() {
  * @param None
  * @return float The duration of the echo signal in microseconds.
  */
-float ULTRASONIC_readEchoSignal(){
-	return ULTRASONIC_portReadEchoSignal();
+float
+ULTRASONIC_readEchoSignal ()
+{
+	return (ULTRASONIC_portReadEchoSignal());
 }
 
 /**
@@ -36,6 +40,8 @@ float ULTRASONIC_readEchoSignal(){
  * @param None
  * @return bool_t `true` if the trigger pulse has been successfully generated, `false` otherwise.
  */
-bool_t ULTRASONIC_triggerSignal(){
-	return ULTRASONIC_portTriggerSignal();
+bool_t
+ULTRASONIC_triggerSignal ()
+{
+	return (ULTRASONIC_portTriggerSignal());
 }

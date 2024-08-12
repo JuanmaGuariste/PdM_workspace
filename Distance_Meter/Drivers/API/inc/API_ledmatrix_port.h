@@ -13,7 +13,6 @@
 #include "stm32f4xx_hal_spi.h"
 #include "stdbool.h"
 
-
 #define CS_LED_MATRIX_Pin 			GPIO_PIN_15
 #define CS_LED_MATRIX_GPIO_Port 	GPIOD
 #define SPI_TIMEOUT					10

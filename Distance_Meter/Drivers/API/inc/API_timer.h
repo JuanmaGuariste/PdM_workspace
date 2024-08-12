@@ -15,29 +15,24 @@
 #include "API_timer_port.h"
 
 typedef bool bool_t;
-
 typedef uint32_t tick_t;
-
-typedef struct{
+typedef struct
+{
    tick_t usStartTime;
    tick_t usDuration;
    bool_t usRunning;
 } usDelay_t;
 
-
-void usDelayInit( usDelay_t * delay, tick_t duration );
-
-bool_t usDelayRead( usDelay_t * delay );
-
-
+bool_t usDelayRead(usDelay_t * delay);
+void usDelayInit(usDelay_t * delay, tick_t duration);
 void MX_TIM2_Init(void);
 void TIMER_usDelay(uint32_t time);
-void TIMER_start();
-void TIMER_init();
+void TIMER_start(void);
+void TIMER_init(void);
+void TIMER_enableInterrupt(void);
+void TIMER_StartInterrupt(void);
+float TIMER_getPulse(void);
 uint32_t TIMER_getRisingEdge(void);
 uint32_t TIMER_getFallingEdge(void);
-float TIMER_getPulse();
-void TIMER_enableInterrupt();
-void TIMER_StartInterrupt(void);
 
 #endif /* API_INC_API_TIMER_H_ */

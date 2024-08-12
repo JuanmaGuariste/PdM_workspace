@@ -8,9 +8,7 @@
 #include "stm32f4xx_hal.h"
 
 static SPI_HandleTypeDef SPI_HANDLE;
-
 static bool_t port_spiInit(void);
-
 static void initCsGPIO(void);
 
 /**
@@ -19,9 +17,11 @@ static void initCsGPIO(void);
  * @param void
  * @return bool_t Returns true if the initialization was successful, otherwise false.
  */
-bool_t port_initSPI() {
+bool_t
+port_initSPI ()
+{
 	initCsGPIO();
-	return port_spiInit();
+	return (port_spiInit());
 }
 
 /**
@@ -29,7 +29,8 @@ bool_t port_initSPI() {
  *
  * @return bool_t Returns true if the initialization was successful, otherwise false.
  */
-static bool_t port_spiInit(void)
+static bool_t
+port_spiInit (void)
 {
   /* SPI1 parameter configuration*/
   SPI_HANDLE.Instance = SPI1;
@@ -45,10 +46,11 @@ static bool_t port_spiInit(void)
   SPI_HANDLE.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
   SPI_HANDLE.Init.CRCPolynomial = 10;
   bool_t estado = false;
-  if (HAL_SPI_Init(&SPI_HANDLE) == HAL_OK) {
+  if (HAL_SPI_Init(&SPI_HANDLE) == HAL_OK)
+  {
       estado = true;
   }
-  return estado;
+  return (estado);
 }
 
 /**
@@ -56,7 +58,8 @@ static bool_t port_spiInit(void)
  *
  * @return void
  */
-static void initCsGPIO(void)
+static void
+initCsGPIO (void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   __HAL_RCC_GPIOD_CLK_ENABLE();
@@ -76,7 +79,9 @@ static void initCsGPIO(void)
  * @param reg The register address to write to.
  * @param data The data to write to the register.
  */
-void MATRIXLED_portSendMsg(uint8_t reg, uint8_t data){
+void
+MATRIXLED_portSendMsg (uint8_t reg, uint8_t data)
+{
 	HAL_GPIO_WritePin(CS_LED_MATRIX_GPIO_Port, CS_LED_MATRIX_Pin, GPIO_PIN_RESET);
 	HAL_SPI_Transmit(&SPI_HANDLE, &reg, 1, SPI_TIMEOUT);
 	while(HAL_SPI_GetState(&SPI_HANDLE) != HAL_SPI_STATE_READY);

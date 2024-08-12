@@ -21,11 +21,15 @@ static void usDelayErrorHandler(void);
  * @param duration Duration of the delay in microseconds.
  * @retval None
  */
-void usDelayInit(usDelay_t *delay, tick_t duration) {
-	if (delay == NULL) {
+void
+usDelayInit (usDelay_t *delay, tick_t duration)
+{
+	if (delay == NULL)
+	{
 		usDelayErrorHandler();
 	}
-	if (((duration > MAX_DELAY_US) || (duration < MIN_DELAY_US))) {
+	if (((duration > MAX_DELAY_US) || (duration < MIN_DELAY_US)))
+	{
 		usDelayErrorHandler();
 	}
 	delay->usDuration = duration;
@@ -40,30 +44,40 @@ void usDelayInit(usDelay_t *delay, tick_t duration) {
  * @param delay Pointer to the usDelay_t structure.
  * @retval bool_t `true` if the delay is still running, `false` if the delay has elapsed.
  */
-bool_t usDelayRead(usDelay_t *delay) {
-	if (delay == NULL) {
+bool_t
+usDelayRead (usDelay_t *delay)
+{
+	if (delay == NULL)
+	{
 		usDelayErrorHandler();
 	}
-	if (((delay->usDuration > MAX_DELAY_US) || (delay->usDuration < MIN_DELAY_US))) {
+	if (((delay->usDuration > MAX_DELAY_US) || (delay->usDuration < MIN_DELAY_US)))
+	{
 		usDelayErrorHandler();
 	}
 	tick_t currentTime =  TIMER_portGetTimerCounter();
 	bool_t timerState = false;
-	if (!(delay->usRunning)) {
+	if (!(delay->usRunning))
+	{
 		delay->usStartTime = currentTime;
 		delay->usRunning = true;
 		timerState = true;
-	} else {
-		if ((currentTime - delay->usStartTime) >= delay->usDuration) {
+	}
+	else
+	{
+		if ((currentTime - delay->usStartTime) >= delay->usDuration)
+		{
 			timerState = false;
 			delay->usRunning = false;
-		} else {
+		}
+		else
+		{
 			timerState = true;
 			delay->usRunning = true;
 		}
 	}
 
-	return timerState;
+	return (timerState);
 }
 
 /**
@@ -72,7 +86,9 @@ bool_t usDelayRead(usDelay_t *delay) {
  * @param time Time in microseconds to wait.
  * @retval None
  */
-void TIMER_usDelay(uint32_t time){
+void
+TIMER_usDelay (uint32_t time)
+{
 	TIMER_portDelay(time);
 }
 
@@ -82,7 +98,9 @@ void TIMER_usDelay(uint32_t time){
  * @param None
  * @retval None
  */
-void TIMER_start(){
+void
+TIMER_start (void)
+{
 	TIMER_portStart();
 }
 
@@ -94,7 +112,9 @@ void TIMER_start(){
  * @param None
  * @retval None
  */
-void TIMER_init(){
+void
+TIMER_init(void)
+{
 	TIMER_portInit();
 }
 
@@ -106,7 +126,9 @@ void TIMER_init(){
  * @param None
  * @retval None
  */
-void TIMER_enableInterrupt(){
+void
+TIMER_enableInterrupt ()
+{
 	TIMER_portEnableInterrupt();
 }
 
@@ -118,8 +140,10 @@ void TIMER_enableInterrupt(){
  * @param None
  * @retval float Pulse duration in microseconds.
  */
-float TIMER_getPulse(void){
-	return TIMER_getPulseDuration();
+float
+TIMER_getPulse (void)
+{
+	return (TIMER_getPulseDuration());
 }
 
 /**
@@ -130,7 +154,9 @@ float TIMER_getPulse(void){
  * @param None
  * @retval None
  */
-void TIMER_StartInterrupt(void){
+void
+TIMER_StartInterrupt (void)
+{
 	TIMER_portStartInterrupt();
 }
 
@@ -142,6 +168,10 @@ void TIMER_StartInterrupt(void){
  * @param None
  * @retval None
  */
-static void usDelayErrorHandler(){
-	while(1){}
+static void
+usDelayErrorHandler()
+{
+	while(1)
+	{
+	}
 }

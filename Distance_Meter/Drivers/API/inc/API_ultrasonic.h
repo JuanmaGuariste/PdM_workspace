@@ -7,15 +7,15 @@
 
 #ifndef API_INC_API_ULTRASONIC_H_
 #define API_INC_API_ULTRASONIC_H_
+
 #include "stm32f4xx_hal.h"
 #include "API_ultrasonic_port.h"
+
 typedef bool bool_t;
 
-
-
-void ULTRASONIC_init();
-bool_t ULTRASONIC_triggerSignal();
-float ULTRASONIC_readEchoSignal();
-float ULTRASONIC_portReadEchoSignal();
+void ULTRASONIC_init(void);
+bool_t ULTRASONIC_triggerSignal(void);
+float ULTRASONIC_readEchoSignal(void);
+float ULTRASONIC_portReadEchoSignal(void);
 
 #endif /* API_INC_API_ULTRASONIC_H_ */

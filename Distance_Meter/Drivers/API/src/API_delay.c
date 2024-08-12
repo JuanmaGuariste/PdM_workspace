@@ -18,11 +18,15 @@ static void delayErrorHandler(void);
  * @param  duration: Duration of the delay in ticks.
  * @retval None
  */
-void delayInit(delay_t *delay, tick_t duration) {
-	if (delay == NULL) { //Verify that pointer is not null
+void
+delayInit (delay_t *delay, tick_t duration)
+{
+	if (delay == NULL) //Verify that pointer is not null
+	{
 		delayErrorHandler();
 	}
-	if (((duration > MAX_DELAY) || (duration < MIN_DELAY))) { // Check if the duration is within the valid range
+	if (((duration > MAX_DELAY) || (duration < MIN_DELAY))) // Check if the duration is within the valid range
+	{
 		delayErrorHandler();
 	}
 	delay->duration = duration;
@@ -34,30 +38,40 @@ void delayInit(delay_t *delay, tick_t duration) {
  * @param  delay: Pointer to the delay structure.
  * @retval bool_t: True if the delay is still running, false if the delay has elapsed.
  */
-bool_t delayRead(delay_t *delay) {
-	if (delay == NULL) { //Verify that pointer is not null
+bool_t
+delayRead (delay_t *delay)
+{
+	if (delay == NULL) //Verify that pointer is not null
+	{
 		delayErrorHandler();
 	}
-	if (((delay->duration > MAX_DELAY) || (delay->duration < MIN_DELAY))) { // Check if the duration is within the valid range
+	if (((delay->duration > MAX_DELAY) || (delay->duration < MIN_DELAY))) // Check if the duration is within the valid range
+	{
 		delayErrorHandler();
 	}
 	tick_t currentTime = HAL_GetTick();
 	bool_t timerState = false;
-	if (!(delay->running)) {
+	if (!(delay->running))
+	{
 		delay->startTime = currentTime;
 		delay->running = true;
 		timerState = true;
-	} else {
-		if ((currentTime - delay->startTime) >= delay->duration) {
+	}
+	else
+	{
+		if ((currentTime - delay->startTime) >= delay->duration)
+		{
 			timerState = false;
 			delay->running = false;
-		} else {
+		}
+		else
+		{
 			timerState = true;
 			delay->running = true;
 		}
 	}
 
-	return timerState;
+	return (timerState);
 }
 
 /**
@@ -66,11 +80,15 @@ bool_t delayRead(delay_t *delay) {
  * @param  duration: New duration of the delay in ticks.
  * @retval None
  */
-void delayWrite(delay_t *delay, tick_t duration) {
-	if (delay == NULL) { //Verify that pointer is not null
+void
+delayWrite (delay_t *delay, tick_t duration)
+{
+	if (delay == NULL) //Verify that pointer is not null
+	{
 		delayErrorHandler();
 	}
-	if (((duration > MAX_DELAY) || (duration < MIN_DELAY))) { // Check if the duration is within the valid range
+	if (((duration > MAX_DELAY) || (duration < MIN_DELAY))) // Check if the duration is within the valid range
+	{
 		delayErrorHandler();
 	}
 	delay->duration = duration;
@@ -80,11 +98,14 @@ void delayWrite(delay_t *delay, tick_t duration) {
  * @param  delay: Pointer to the delay structure.
  * @retval bool_t: Returns true if the delay is running, false otherwise.
  */
-bool_t delayIsRunning(delay_t * delay){
-	if (delay == NULL) { //Verify that pointer is not null
+bool_t
+delayIsRunning (delay_t * delay)
+{
+	if (delay == NULL)  //Verify that pointer is not null
+	{
 		delayErrorHandler();
 	}
-	return delay->running;
+	return (delay->running);
 }
 
 /**
@@ -92,7 +113,8 @@ bool_t delayIsRunning(delay_t * delay){
   * @param  None
   * @retval None
   */
-static void delayErrorHandler(void)
+static void
+delayErrorHandler (void)
 {
   /* Turn LED2 on */
   BSP_LED_On(LED2);

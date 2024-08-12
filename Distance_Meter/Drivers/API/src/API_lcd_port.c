@@ -8,7 +8,7 @@
 
 static I2C_HandleTypeDef I2C_HANDLE;
 
-static bool_t port_i2cInit();
+static bool_t port_i2cInit(void);
 
 /**
  * @brief Initializes the port used by the LCD.
@@ -16,8 +16,10 @@ static bool_t port_i2cInit();
  * @param void
  * @return bool_t Returns true if the initialization was successful, otherwise false.
  */
-bool_t port_init() {
-	return port_i2cInit();
+bool_t
+port_init (void)
+{
+	return (port_i2cInit());
 }
 
 /**
@@ -26,7 +28,9 @@ bool_t port_init() {
  * @param void
  * @return bool_t Returns true if the initialization was successful, otherwise false.
  */
-static bool_t port_i2cInit() {
+static bool_t
+port_i2cInit (void)
+{
 	I2C_HANDLE.Instance = I2C_INSTANCE;
 	I2C_HANDLE.Init.ClockSpeed = I2C_CLOCK_SPEED;
 	I2C_HANDLE.Init.DutyCycle = I2C_DUTYCYCLE_2;
@@ -39,11 +43,12 @@ static bool_t port_i2cInit() {
 
 	bool_t estado = false;
 
-	if (HAL_I2C_Init(&I2C_HANDLE) == HAL_OK) {
+	if (HAL_I2C_Init(&I2C_HANDLE) == HAL_OK)
+	{
 		estado = true;
 	}
 
-	return estado;
+	return (estado);
 }
 
 /**
@@ -52,7 +57,9 @@ static bool_t port_i2cInit() {
  * @param delay Amount of time to delay in milliseconds.
  * @return void
  */
-void LCD_portDelay(uint32_t delay){
+void
+LCD_portDelay (uint32_t delay)
+{
 	  HAL_Delay(delay);
 }
 
@@ -62,12 +69,15 @@ void LCD_portDelay(uint32_t delay){
  * @param byte Byte to write.
  * @return bool_t Returns true if the write was successful, otherwise false.
  */
-bool_t LCD_portWriteByte(uint8_t byte) {
-	if (HAL_I2C_Master_Transmit(&I2C_HANDLE, LCD_ADDRESS << 1, &byte, 1, 100) == HAL_OK){
-		return true;
+bool_t
+LCD_portWriteByte (uint8_t byte)
+{
+	if (HAL_I2C_Master_Transmit(&I2C_HANDLE, LCD_ADDRESS << 1, &byte, 1, 100) == HAL_OK)
+	{
+		return (true);
 	}
-	else {
-		return false;
-
+	else
+	{
+		return (false);
 	}
 }

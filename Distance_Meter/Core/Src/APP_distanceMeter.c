@@ -7,20 +7,20 @@
 #include "APP_distanceMeter.h"
 
 static distanceMeterState_t currentState;
-static distanceMeterState_t handler_trigerSensor();
-static distanceMeterState_t handler_waitForEcho();
-static distanceMeterState_t handler_measureDistance();
-static distanceMeterState_t handler_displayDistance();
-static distanceMeterState_t handler_updateLeds();
-static distanceMeterState_t handler_waitTime();
-
+static distanceMeterState_t handler_trigerSensor(void);
+static distanceMeterState_t handler_waitForEcho(void);
+static distanceMeterState_t handler_measureDistance(void);
+static distanceMeterState_t handler_displayDistance(void);
+static distanceMeterState_t handler_updateLeds(void);
+static distanceMeterState_t handler_waitTime(void);
 static void setTimeUltrasonicData(float time);
-static float getTimeUltrasonicData();
+static float getTimeUltrasonicData(void);
 static void setDistanceUltrasonicData(float distance);
-static float getDistanceUltrasonicData();
+static float getDistanceUltrasonicData(void);
 static float timeToDistanceConvertion(float time);
 
-typedef struct {
+typedef struct
+{
 	float time;
 	float distance;
 } UltrasonicSensorData;
@@ -40,7 +40,9 @@ static delay_t measurementDelay;
  * @param None
  * @retval APP_statusTypedef Status of the initialization.
  */
-APP_statusTypedef distanceMeter_FSM_init() {
+APP_statusTypedef
+distanceMeter_FSM_init ()
+{
 	TIMER_init();
 	TIMER_start();
 	LCD_init();
@@ -60,36 +62,39 @@ APP_statusTypedef distanceMeter_FSM_init() {
  * @param None
  * @retval APP_statusTypedef Status of the update.
  */
-APP_statusTypedef distanceMeter_FSM_update() {
-	switch (currentState) {
-	case TRIGGER_SENSOR:
-		currentState = handler_trigerSensor();
+APP_statusTypedef
+distanceMeter_FSM_update (void)
+{
+	switch (currentState)
+	{
+		case TRIGGER_SENSOR:
+			currentState = handler_trigerSensor();
 		break;
 
-	case WAIT_FOR_ECHO:
-		currentState = handler_waitForEcho();
+		case WAIT_FOR_ECHO:
+			currentState = handler_waitForEcho();
 		break;
 
-	case MEASURE_DISTANCE:
-		currentState = handler_measureDistance();
+		case MEASURE_DISTANCE:
+			currentState = handler_measureDistance();
 		break;
 
-	case DISPLAY_DISTANCE:
-		currentState = handler_displayDistance();
+		case DISPLAY_DISTANCE:
+			currentState = handler_displayDistance();
 		break;
 
-	case UPDATE_LEDS:
-		currentState = handler_updateLeds();
+		case UPDATE_LEDS:
+			currentState = handler_updateLeds();
 		break;
 
-	case WAIT_TIME:
-		currentState = handler_waitTime();
-		break;
-	default:
-		currentState = distanceMeter_FSM_init();
+		case WAIT_TIME:
+			currentState = handler_waitTime();
+			break;
+		default:
+			currentState = distanceMeter_FSM_init();
 		break;
 	}
-	return APP_OK;
+	return (APP_OK);
 }
 
 /**
@@ -100,11 +105,14 @@ APP_statusTypedef distanceMeter_FSM_update() {
  * @param None
  * @retval distanceMeterState_t Next state.
  */
-static distanceMeterState_t handler_trigerSensor(){
-	if (!ULTRASONIC_triggerSignal()){
-		return TRIGGER_SENSOR;
+static distanceMeterState_t
+handler_trigerSensor (void)
+{
+	if (!ULTRASONIC_triggerSignal())
+	{
+		return (TRIGGER_SENSOR);
 	}
-	return WAIT_FOR_ECHO;
+	return (WAIT_FOR_ECHO);
 }
 
 /**
@@ -115,9 +123,11 @@ static distanceMeterState_t handler_trigerSensor(){
  * @param None
  * @retval distanceMeterState_t Next state.
  */
-static distanceMeterState_t handler_waitForEcho(){
+static distanceMeterState_t
+handler_waitForEcho (void)
+{
 	setTimeUltrasonicData(ULTRASONIC_readEchoSignal());
-	return MEASURE_DISTANCE;
+	return (MEASURE_DISTANCE);
 }
 
 /**
@@ -128,11 +138,13 @@ static distanceMeterState_t handler_waitForEcho(){
  * @param None
  * @retval distanceMeterState_t Next state.
  */
-static distanceMeterState_t handler_measureDistance(){
+static distanceMeterState_t
+handler_measureDistance (void)
+{
 	float time = getTimeUltrasonicData();
 	float distance = timeToDistanceConvertion(time);
 	setDistanceUltrasonicData(distance);
-	return DISPLAY_DISTANCE;
+	return (DISPLAY_DISTANCE);
 }
 
 /**
@@ -143,15 +155,20 @@ static distanceMeterState_t handler_measureDistance(){
  * @param None
  * @retval distanceMeterState_t Next state.
  */
-static distanceMeterState_t handler_displayDistance(){
+static distanceMeterState_t
+handler_displayDistance (void)
+{
 	float distance = getDistanceUltrasonicData();
 	LCD_clear();
-	if (distance < 100) {
+	if (distance < 100)
+	{
 		LCD_printFormattedText("DISTANCIA: %d.%02d", distance);
-	} else {
+	}
+	else
+	{
 		LCD_printText("Sin obstaculos");
 	}
-	return UPDATE_LEDS;
+	return (UPDATE_LEDS);
 }
 
 /**
@@ -162,20 +179,33 @@ static distanceMeterState_t handler_displayDistance(){
  * @param None
  * @retval distanceMeterState_t Next state.
  */
-static distanceMeterState_t handler_updateLeds(){
-	float distance = getDistanceUltrasonicData();
-	    if (distance < 5) {
-	    	MATRIXLED_display(DISTANCE_VERY_CLOSE);
-	    } else if (distance < 10) {
-	    	MATRIXLED_display(DISTANCE_CLOSE);
-	    } else if (distance < 15) {
-	    	MATRIXLED_display(DISTANCE_FAR);
-	    } else if (distance < 20) {
-	    	MATRIXLED_display(DISTANCE_VERY_FAR);
-	    } else {
-	    	MATRIXLED_display(NO_OBSTACLE_DETECTED);
-	    }
-	return WAIT_TIME;
+static distanceMeterState_t
+handler_updateLeds (void)
+{
+    float distance = getDistanceUltrasonicData();
+    displayMatrixState_t ledState;
+
+    // Determine the LED matrix state based on the distance
+    switch ((int)(distance / 5))
+    {
+        case 0:  // 0 <= distance < 5
+            ledState = DISTANCE_VERY_CLOSE;
+            break;
+        case 1:  // 5 <= distance < 10
+            ledState = DISTANCE_CLOSE;
+            break;
+        case 2:  // 10 <= distance < 15
+            ledState = DISTANCE_FAR;
+            break;
+        case 3:  // 15 <= distance < 20
+            ledState = DISTANCE_VERY_FAR;
+            break;
+        default: // distance >= 20
+            ledState = NO_OBSTACLE_DETECTED;
+            break;
+    }
+    MATRIXLED_display(ledState);
+    return (WAIT_TIME);
 }
 
 /**
@@ -186,11 +216,14 @@ static distanceMeterState_t handler_updateLeds(){
  * @param None
  * @retval distanceMeterState_t Next state.
  */
-static distanceMeterState_t handler_waitTime() {
-	if (delayRead(&measurementDelay)) {
-		return WAIT_TIME;
+static distanceMeterState_t
+handler_waitTime (void)
+{
+	if (delayRead(&measurementDelay))
+	{
+		return (WAIT_TIME);
 	}
-	return TRIGGER_SENSOR;
+	return (TRIGGER_SENSOR);
 }
 
 /**
@@ -199,7 +232,9 @@ static distanceMeterState_t handler_waitTime() {
  * @param time Measured time in microseconds.
  * @retval None
  */
-static void setTimeUltrasonicData(float time){
+static void
+setTimeUltrasonicData (float time)
+{
 	ultrasonicSensorData.time = time;
 }
 
@@ -209,8 +244,10 @@ static void setTimeUltrasonicData(float time){
  * @param None
  * @retval float Measured time in microseconds.
  */
-static float getTimeUltrasonicData(){
-	return ultrasonicSensorData.time;
+static float
+getTimeUltrasonicData (void)
+{
+	return (ultrasonicSensorData.time);
 }
 
 /**
@@ -219,7 +256,9 @@ static float getTimeUltrasonicData(){
  * @param distance Measured distance in centimeters.
  * @retval None
  */
-static void setDistanceUltrasonicData(float distance){
+static void
+setDistanceUltrasonicData (float distance)
+{
 	ultrasonicSensorData.distance = distance;
 }
 
@@ -229,7 +268,9 @@ static void setDistanceUltrasonicData(float distance){
  * @param None
  * @retval float Measured distance in centimeters.
  */
-static float getDistanceUltrasonicData(){
+static float
+getDistanceUltrasonicData (void)
+{
 	return ultrasonicSensorData.distance;
 }
 
@@ -238,7 +279,9 @@ static float getDistanceUltrasonicData(){
  * @param time: Time duration in microseconds.
  * @retval Distance in centimeters.
  */
-static float timeToDistanceConvertion(float time) {
+static float
+timeToDistanceConvertion (float time)
+{
 	return (time * speedOfSound);
 }
 
