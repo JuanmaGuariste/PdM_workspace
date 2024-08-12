@@ -5,6 +5,8 @@
  *      Author: juanma
  */
 #include "APP_distanceMeter.h"
+const bool_t FAIL = 1;
+const bool_t OK = 0;
 
 static distanceMeterState_t currentState;
 static distanceMeterState_t handler_trigerSensor(void);
@@ -26,10 +28,48 @@ typedef struct
 } UltrasonicSensorData;
 
 static UltrasonicSensorData ultrasonicSensorData = { 0.0, 0.0};
-
 static const float speedOfSound = 0.0343 / 2;
-
 static delay_t measurementDelay;
+static void MSF_errorHandler(void);
+static APP_statusTypedef initializeStateMachine(void);
+
+/**
+ * @brief Initializes the state machine with retry logic.
+ *
+ * This function attempts to initialize the state machine up to a maximum
+ * number of retries (`MAX_RETRIES`). If the initialization fails, it waits
+ * for a defined delay (`RETRY_DELAY_MS`) before trying again. If the
+ * initialization is successful, it breaks out of the retry loop.
+ *  * If all attempts fail, the error is handled by an error handler.
+ *
+ * @param void No parameters.
+ * @return void No return value.
+ */
+void
+distanceMeter_FSM_init (void)
+{
+    uint8_t attempt = 0;
+    bool initializationSuccessful = false;
+
+    while (attempt < MAX_RETRIES)
+    {
+        if (initializeStateMachine() == APP_FAIL)
+        {
+            attempt++;
+            HAL_Delay(RETRY_DELAY_MS);
+        }
+        else
+        {
+            initializationSuccessful = true;
+            break;
+        }
+    }
+
+    if (!initializationSuccessful)
+    {
+    	MSF_errorHandler();
+    }
+}
 
 /**
  * @brief Initializes the distance meter FSM.
@@ -40,17 +80,17 @@ static delay_t measurementDelay;
  * @param None
  * @retval APP_statusTypedef Status of the initialization.
  */
-APP_statusTypedef
-distanceMeter_FSM_init ()
+static APP_statusTypedef
+initializeStateMachine ()
 {
-	TIMER_init();
-	TIMER_start();
-	LCD_init();
-	LCD_clear();
-	ULTRASONIC_init();
-	LEDMATRIX_init();
+	if (TIMER_init() == FAIL) return (APP_FAIL);
+	if (TIMER_start() == FAIL) return (APP_FAIL);
+	if (LCD_init() == FAIL) return (APP_FAIL);
+	if (LCD_clear() == FAIL) return (APP_FAIL);
+	if (ULTRASONIC_init() == FAIL) return (APP_FAIL);
+	if (LEDMATRIX_init() == FAIL) return (APP_FAIL);
+	if (delayInit(&measurementDelay, MEASUREMENT_DELAY) == FAIL) return (APP_FAIL);
 	currentState = TRIGGER_SENSOR;
-	delayInit(&measurementDelay, MEASUREMENT_DELAY);
 	return APP_OK;
 }
 
@@ -91,7 +131,7 @@ distanceMeter_FSM_update (void)
 			currentState = handler_waitTime();
 			break;
 		default:
-			currentState = distanceMeter_FSM_init();
+			currentState = initializeStateMachine();
 		break;
 	}
 	return (APP_OK);
@@ -283,5 +323,14 @@ static float
 timeToDistanceConvertion (float time)
 {
 	return (time * speedOfSound);
+}
+
+static
+void MSF_errorHandler (void)
+{
+    while (1)
+    {
+
+    }
 }
 

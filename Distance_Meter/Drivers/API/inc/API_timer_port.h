@@ -10,12 +10,15 @@
 #define API_INC_API_TIMER_PORT_H_
 
 #include <stdint.h>
+#include "stdbool.h"
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_it.h"
 #include "stm32f4xx_hal_tim.h"
 
-void TIMER_portStart(void);
-void TIMER_portInit(void);
+typedef bool bool_t;
+
+bool_t TIMER_portStart(void);
+bool_t TIMER_portInit(void);
 void TIMER_portDelay(uint32_t time);
 void TIMER_captureEdges(void);
 void TIMER_portEnableInterrupt(void);

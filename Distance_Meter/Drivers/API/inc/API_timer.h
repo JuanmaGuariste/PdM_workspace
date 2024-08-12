@@ -23,12 +23,18 @@ typedef struct
    bool_t usRunning;
 } usDelay_t;
 
+typedef enum
+{
+	TIMER_OK,
+	TIMER_FAIL
+} TIMER_StatusTypedef;
+
 bool_t usDelayRead(usDelay_t * delay);
 void usDelayInit(usDelay_t * delay, tick_t duration);
 void MX_TIM2_Init(void);
 void TIMER_usDelay(uint32_t time);
-void TIMER_start(void);
-void TIMER_init(void);
+TIMER_StatusTypedef TIMER_start(void);
+TIMER_StatusTypedef TIMER_init(void);
 void TIMER_enableInterrupt(void);
 void TIMER_StartInterrupt(void);
 float TIMER_getPulse(void);

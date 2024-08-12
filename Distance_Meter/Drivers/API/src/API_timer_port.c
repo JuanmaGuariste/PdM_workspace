@@ -13,7 +13,6 @@ static void TIMER_setFirstEdgeTime(uint32_t time);
 static uint32_t TIMER_getFirstEdgeTime(void);
 static void TIMER_setSecondEdgeTime(uint32_t time);
 static void TIMER_setPulseDuration(float duration);
-static void TIMER_errorHandler(void);
 static void TIMER_portReStartTimerCounter(void);
 
 TIM_HandleTypeDef TIM2_HANDLE;
@@ -33,10 +32,10 @@ static TimerCaptureData timerCaptureData = { 0, 0, 0, 0 };
  * @param None
  * @retval None
  */
-void
+bool_t
 TIMER_portStart (void)
 {
-	HAL_TIM_Base_Start(&TIM2_HANDLE);
+	return (HAL_TIM_Base_Start(&TIM2_HANDLE));
 }
 
 /**
@@ -44,7 +43,7 @@ TIMER_portStart (void)
  * @param None
  * @retval None
  */
-void
+bool_t
 TIMER_portInit (void)
 {
 	TIM_ClockConfigTypeDef sClockSourceConfig = { 0 };
@@ -59,22 +58,22 @@ TIMER_portInit (void)
 	TIM2_HANDLE.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
 	if (HAL_TIM_Base_Init(&TIM2_HANDLE) != HAL_OK)
 	{
-		TIMER_errorHandler();
+		return (false);
 	}
 	sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
 	if (HAL_TIM_ConfigClockSource(&TIM2_HANDLE, &sClockSourceConfig) != HAL_OK)
 	{
-		TIMER_errorHandler();
+		return (false);
 	}
 	if (HAL_TIM_IC_Init(&TIM2_HANDLE) != HAL_OK)
 	{
-		TIMER_errorHandler();
+		return (false);
 	}
 	sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
 	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
 	if (HAL_TIMEx_MasterConfigSynchronization(&TIM2_HANDLE, &sMasterConfig) != HAL_OK)
 	{
-		TIMER_errorHandler();
+		return (false);
 	}
 	sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_BOTHEDGE;
 	sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
@@ -82,8 +81,9 @@ TIMER_portInit (void)
 	sConfigIC.ICFilter = 4;
 	if (HAL_TIM_IC_ConfigChannel(&TIM2_HANDLE, &sConfigIC, TIM_CHANNEL_1) != HAL_OK)
 	{
-		TIMER_errorHandler();
+		return (false);
 	}
+	return (true);
 }
 
 /**
@@ -283,17 +283,4 @@ static void
 TIMER_setPulseDuration (float duration)
 {
 	timerCaptureData.pulseDuration = duration;
-}
-
-/**
- * @brief Handles timer errors.
- * @param None
- * @retval None
- */
-static void
-TIMER_errorHandler (void)
-{
-	while (1)
-	{
-	}
 }

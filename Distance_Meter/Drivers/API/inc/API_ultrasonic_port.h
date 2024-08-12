@@ -15,7 +15,7 @@
 #define TRIGGER_Pin GPIO_PIN_12
 #define TRIGGER_GPIO_Port GPIOF
 
-void ULTRASONIC_portInit(void);
+bool_t ULTRASONIC_portInit(void);
 bool_t ULTRASONIC_portTriggerSignal(void);
 
 #endif /* API_INC_API_ULTRASONIC_PORT_H_ */

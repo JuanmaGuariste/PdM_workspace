@@ -23,7 +23,13 @@ typedef struct
    bool_t running;
 } delay_t;
 
-void delayInit(delay_t * delay, tick_t duration);
+typedef enum
+{
+	DELAY_OK,
+	DELAY_FAIL
+} DELAY_StatusTypedef;
+
+DELAY_StatusTypedef delayInit(delay_t * delay, tick_t duration);
 
 bool_t delayRead(delay_t * delay );
 

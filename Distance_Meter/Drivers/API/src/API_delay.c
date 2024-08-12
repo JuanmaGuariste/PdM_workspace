@@ -18,19 +18,20 @@ static void delayErrorHandler(void);
  * @param  duration: Duration of the delay in ticks.
  * @retval None
  */
-void
+DELAY_StatusTypedef
 delayInit (delay_t *delay, tick_t duration)
 {
 	if (delay == NULL) //Verify that pointer is not null
 	{
-		delayErrorHandler();
+		return (DELAY_FAIL);
 	}
 	if (((duration > MAX_DELAY) || (duration < MIN_DELAY))) // Check if the duration is within the valid range
 	{
-		delayErrorHandler();
+		return (DELAY_FAIL);
 	}
 	delay->duration = duration;
 	delay->running = false;
+	return (DELAY_OK);
 }
 
 /**

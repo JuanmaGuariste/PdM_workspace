@@ -98,10 +98,10 @@ TIMER_usDelay (uint32_t time)
  * @param None
  * @retval None
  */
-void
+TIMER_StatusTypedef
 TIMER_start (void)
 {
-	TIMER_portStart();
+	return (TIMER_portStart());
 }
 
 /**
@@ -112,10 +112,10 @@ TIMER_start (void)
  * @param None
  * @retval None
  */
-void
+TIMER_StatusTypedef
 TIMER_init(void)
 {
-	TIMER_portInit();
+	return (!TIMER_portInit());
 }
 
 /**

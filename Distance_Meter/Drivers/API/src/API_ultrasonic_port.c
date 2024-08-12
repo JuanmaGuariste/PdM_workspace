@@ -38,13 +38,14 @@ initTriggerGPIO (void)
  * @param None
  * @retval None
  */
-void
+bool_t
 ULTRASONIC_portInit (void)
 {
 	initTriggerGPIO();
 	HAL_GPIO_WritePin(TRIGGER_GPIO_Port, TRIGGER_Pin, GPIO_PIN_RESET);
 	TIMER_StartInterrupt();
 	usDelayInit(&triggerDelay, TRIGGER_DELAY);
+	return (false);
 }
 
 /**

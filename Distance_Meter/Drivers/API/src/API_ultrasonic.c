@@ -14,10 +14,10 @@
  * @param None
  * @retval None
  */
-void
+ULTRASONIC_StatusTypedef
 ULTRASONIC_init (void)
 {
-	ULTRASONIC_portInit();
+	return (ULTRASONIC_portInit());
 }
 
 /**
@@ -40,7 +40,7 @@ ULTRASONIC_readEchoSignal ()
  * @param None
  * @return bool_t `true` if the trigger pulse has been successfully generated, `false` otherwise.
  */
-bool_t
+ULTRASONIC_StatusTypedef
 ULTRASONIC_triggerSignal ()
 {
 	return (ULTRASONIC_portTriggerSignal());

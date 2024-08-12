@@ -12,9 +12,14 @@
 #include "API_ultrasonic_port.h"
 
 typedef bool bool_t;
+typedef enum
+{
+	ULTRASONIC_OK,
+	ULTRASONIC_FAIL
+} ULTRASONIC_StatusTypedef;
 
-void ULTRASONIC_init(void);
-bool_t ULTRASONIC_triggerSignal(void);
+ULTRASONIC_StatusTypedef ULTRASONIC_init(void);
+ULTRASONIC_StatusTypedef ULTRASONIC_triggerSignal(void);
 float ULTRASONIC_readEchoSignal(void);
 float ULTRASONIC_portReadEchoSignal(void);
 

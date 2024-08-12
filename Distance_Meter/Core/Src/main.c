@@ -52,6 +52,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 /* USER CODE END 0 */
 /**
   * @brief  The application entry point.
@@ -89,6 +90,11 @@ int main(void)
 	while (1)
 	{
 		distanceMeter_FSM_update();
+//		if (distanceMeter_FSM_update() == APP_FAIL)
+//		{
+//			Error_Handler();
+//		}
+
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */

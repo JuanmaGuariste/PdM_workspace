@@ -18,6 +18,8 @@
 #include "API_delay.h"
 
 #define MEASUREMENT_DELAY		500
+#define MAX_RETRIES 			5
+#define RETRY_DELAY_MS 			200
 
 typedef enum
 {
@@ -35,7 +37,7 @@ typedef enum {
 	APP_FAIL
 } APP_statusTypedef;
 
-APP_statusTypedef distanceMeter_FSM_init();
+void distanceMeter_FSM_init(void);
 APP_statusTypedef distanceMeter_FSM_update(void);
 
 #endif /* INC_APP_DISTANCEMETER_H_ */
