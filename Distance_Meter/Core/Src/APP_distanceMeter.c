@@ -19,7 +19,6 @@ static float getDistanceUltrasonicData(void);
 static float timeToDistanceConvertion(float time);
 static distanceMeterState_t currentState; //Global private variable to store the current state of the MSF.
 
-static distanceMeterState_t currentState;
 typedef struct
 {
 	float time;
