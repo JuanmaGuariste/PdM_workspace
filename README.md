@@ -20,3 +20,6 @@ El objetivo de esta práctica es implementar un MEF para trabajar con anti-rebot
 
 ### Práctica 5:
 Implementar un módulo de software con un wrapper de la HAL para trabajar con la UART. La placa de desarrollo utilizada es la NUCLEO-F429ZI.
+
+### Trabajo final
+La aplicación desarrollada en este trabajo práctico utiliza la placa de desarrollo NUCLEO-STM32F429ZI. Consiste en emplear un sensor ultrasónico HC-SR04 para medir la distancia a un objeto y mostrar los valores de dicha distancia en un display LCD CN0295D. Además, se utiliza una matriz de LEDs 8x8 gobernada por el controlador MAX7219 para representar visualmente, a modo de alerta, la proximidad del objeto medido. A medida que el objeto se acerca al sensor y supera ciertos umbrales de distancia, la cantidad de LEDs encendidos aumenta, proporcionando una indicación visual clara de la proximidad.
