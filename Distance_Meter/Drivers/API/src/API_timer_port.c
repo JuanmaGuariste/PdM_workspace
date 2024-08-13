@@ -15,6 +15,11 @@ static void TIMER_setSecondEdgeTime(uint32_t time);
 static void TIMER_setPulseDuration(float duration);
 static void TIMER_portReStartTimerCounter(void);
 
+static uint32_t firstEdgeAux = 0;
+static uint32_t secondEdgeAux = 0;
+static float pulseDurationAux = 0;
+
+
 TIM_HandleTypeDef TIM2_HANDLE;
 
 typedef struct
@@ -162,16 +167,19 @@ HAL_TIM_IC_CaptureCallback (TIM_HandleTypeDef *TIM2_HANDLE)
 	{
 		if (TIMER_getCaptureIdx() == 0)
 		{
-			TIMER_setFirstEdgeTime(HAL_TIM_ReadCapturedValue(TIM2_HANDLE, TIM_CHANNEL_1));
+			firstEdgeAux = HAL_TIM_ReadCapturedValue(TIM2_HANDLE, TIM_CHANNEL_1);
+			TIMER_setFirstEdgeTime(firstEdgeAux);
 			TIMER_setCaptureIdx(1);
 		}
 		else if (TIMER_getCaptureIdx() == 1)
 		{
-			TIMER_setSecondEdgeTime(HAL_TIM_ReadCapturedValue(TIM2_HANDLE, TIM_CHANNEL_1));
+			secondEdgeAux = HAL_TIM_ReadCapturedValue(TIM2_HANDLE, TIM_CHANNEL_1);
+			TIMER_setSecondEdgeTime(secondEdgeAux);
 			TIMER_portReStartTimerCounter();
 			if (TIMER_getSecondEdgeTime() > TIMER_getFirstEdgeTime())
 			{
-				TIMER_setPulseDuration(TIMER_getSecondEdgeTime() - TIMER_getFirstEdgeTime());
+				pulseDurationAux = (TIMER_getSecondEdgeTime() - TIMER_getFirstEdgeTime());
+				TIMER_setPulseDuration(pulseDurationAux);
 			}
 			else
 			{
