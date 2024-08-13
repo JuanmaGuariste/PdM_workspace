@@ -10,10 +10,12 @@ static void MATRIXLED_sendMsg(uint8_t reg, uint8_t data);
 
 /**
  * @brief Initializes the LED matrix.
- * This function sets up the SPI port, and configures the LED matrix for normal operation.
  *
- * @param None
- * @retval LED_MATRIX_OK if initialization is successful, LED_MATRIX_FAIL otherwise.
+ * This function sets up the SPI port and configures the LED matrix with specific parameters.
+ *
+ * @param void This function does not take any parameters.
+ * @return LEDMATRIX_StatusTypedef Returns `LED_MATRIX_OK` if initialization is successful,
+ *         otherwise returns `LED_MATRIX_FAIL`.
  */
 LEDMATRIX_StatusTypedef
 LEDMATRIX_init ()
@@ -53,7 +55,7 @@ MATRIXLED_display (displayMatrixState_t data)
 {
 	switch (data)
 	{
-		case DISTANCE_VERY_CLOSE:
+		case DISTANCE_VERY_CLOSE: // All LEDs are turned on (8x8 matrix)
 			MATRIXLED_sendMsg(0x01, 0xFF);
 			MATRIXLED_sendMsg(0x02, 0xFF);
 			MATRIXLED_sendMsg(0x03, 0xFF);
@@ -63,7 +65,7 @@ MATRIXLED_display (displayMatrixState_t data)
 			MATRIXLED_sendMsg(0x07, 0xFF);
 			MATRIXLED_sendMsg(0x08, 0xFF);
 			break;
-		case DISTANCE_CLOSE:
+		case DISTANCE_CLOSE: // All LEDs are turned on except for the outermost ones (6x6 matrix)
 			MATRIXLED_sendMsg(0x01, 0x00);
 			MATRIXLED_sendMsg(0x02, 0x7E);
 			MATRIXLED_sendMsg(0x03, 0x7E);
@@ -73,7 +75,7 @@ MATRIXLED_display (displayMatrixState_t data)
 			MATRIXLED_sendMsg(0x07, 0x7E);
 			MATRIXLED_sendMsg(0x08, 0x00);
 			break;
-		case DISTANCE_FAR:
+		case DISTANCE_FAR: // Center LEDs are turned on (4x4 matrix)
 			MATRIXLED_sendMsg(0x01, 0x00);
 			MATRIXLED_sendMsg(0x02, 0x00);
 			MATRIXLED_sendMsg(0x03, 0x3C);
@@ -83,7 +85,7 @@ MATRIXLED_display (displayMatrixState_t data)
 			MATRIXLED_sendMsg(0x07, 0x00);
 			MATRIXLED_sendMsg(0x08, 0x00);
 			break;
-		case DISTANCE_VERY_FAR:
+		case DISTANCE_VERY_FAR: // Center LEDs are turned on (2x2 matrix)
 			MATRIXLED_sendMsg(0x01, 0x00);
 			MATRIXLED_sendMsg(0x02, 0x00);
 			MATRIXLED_sendMsg(0x03, 0x00);
@@ -93,7 +95,7 @@ MATRIXLED_display (displayMatrixState_t data)
 			MATRIXLED_sendMsg(0x07, 0x00);
 			MATRIXLED_sendMsg(0x08, 0x00);
 			break;
-		case NO_OBSTACLE_DETECTED:
+		case NO_OBSTACLE_DETECTED: // No LEDs are turned on (0x0)
 			MATRIXLED_sendMsg(0x01, 0x00);
 			MATRIXLED_sendMsg(0x02, 0x00);
 			MATRIXLED_sendMsg(0x03, 0x00);
@@ -103,7 +105,7 @@ MATRIXLED_display (displayMatrixState_t data)
 			MATRIXLED_sendMsg(0x07, 0x00);
 			MATRIXLED_sendMsg(0x08, 0x00);
 			break;
-		default:
+		default: // No LEDs are turned on (0x0)
 			MATRIXLED_sendMsg(0x01, 0x00);
 			MATRIXLED_sendMsg(0x02, 0x00);
 			MATRIXLED_sendMsg(0x03, 0x00);

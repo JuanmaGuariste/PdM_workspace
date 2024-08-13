@@ -328,7 +328,7 @@ timeToDistanceConvertion (float time)
 static
 void MSF_errorHandler (void)
 {
-    while (1)
+    while (1)//TODO: implement a MSF error handler
     {
 
     }

@@ -7,9 +7,6 @@
 
 #include "API_timer.h"
 
-#define	MAX_DELAY_US	60000
-#define	MIN_DELAY_US	1
-
 static void usDelayErrorHandler(void);
 
 /**
@@ -76,7 +73,6 @@ usDelayRead (usDelay_t *delay)
 			delay->usRunning = true;
 		}
 	}
-
 	return (timerState);
 }
 
@@ -95,8 +91,11 @@ TIMER_usDelay (uint32_t time)
 /**
  * @brief Starts the timer.
  *
- * @param None
- * @retval None
+ * This function initiates the timer operation by calling the TIMER_portStart() function.
+ * It returns a status indicating whether the timer start was successful.
+ *
+ * @param void This function does not take any parameters.
+ * @return TIMER_StatusTypedef Returns TIMER_OK if the timer started successfully, otherwise TIMER_FAIL.
  */
 TIMER_StatusTypedef
 TIMER_start (void)
@@ -107,10 +106,11 @@ TIMER_start (void)
 /**
  * @brief Initializes the timer.
  *
- * Sets up the timer for use.
+ * This function sets up the timer by calling the TIMER_portInit() function.
+ * It returns a status indicating whether the initialization was successful.
  *
- * @param None
- * @retval None
+ * @param void This function does not take any parameters.
+ * @return TIMER_StatusTypedef Returns TIMER_OK if initialization was successful, otherwise TIMER_FAIL.
  */
 TIMER_StatusTypedef
 TIMER_init(void)
@@ -171,7 +171,7 @@ TIMER_StartInterrupt (void)
 static void
 usDelayErrorHandler()
 {
-	while(1)
+	while(1) //TODO: implement a usDelay error handler
 	{
 	}
 }

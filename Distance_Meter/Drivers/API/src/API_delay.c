@@ -5,27 +5,31 @@
  *      Author: juanma
  */
 #include "API_delay.h"
-#include "main.h"
 
 #define	MAX_DELAY	60000
 #define	MIN_DELAY	1
 
 static void delayErrorHandler(void);
+static tick_t DELAY_getTick(void);
 
 /**
- * @brief  Initializes the delay structure with the specified duration.
- * @param  delay: Pointer to the delay structure.
- * @param  duration: Duration of the delay in ticks.
- * @retval None
+ * @brief Initializes the delay structure with the specified duration.
+ *
+ * This function sets up the `delay` structure with the given duration.
+ *
+ * @param delay Pointer to the delay structure to be initialized.
+ * @param duration Duration of the delay in ticks. Must be within the valid range.
+ * @retval DELAY_StatusTypedef Returns `DELAY_OK` if the initialization was successful,
+ *         otherwise returns `DELAY_FAIL`.
  */
 DELAY_StatusTypedef
 delayInit (delay_t *delay, tick_t duration)
 {
-	if (delay == NULL) //Verify that pointer is not null
+	if (delay == NULL)
 	{
 		return (DELAY_FAIL);
 	}
-	if (((duration > MAX_DELAY) || (duration < MIN_DELAY))) // Check if the duration is within the valid range
+	if (((duration > MAX_DELAY) || (duration < MIN_DELAY)))
 	{
 		return (DELAY_FAIL);
 	}
@@ -42,15 +46,15 @@ delayInit (delay_t *delay, tick_t duration)
 bool_t
 delayRead (delay_t *delay)
 {
-	if (delay == NULL) //Verify that pointer is not null
+	if (delay == NULL)
 	{
 		delayErrorHandler();
 	}
-	if (((delay->duration > MAX_DELAY) || (delay->duration < MIN_DELAY))) // Check if the duration is within the valid range
+	if (((delay->duration > MAX_DELAY) || (delay->duration < MIN_DELAY)))
 	{
 		delayErrorHandler();
 	}
-	tick_t currentTime = HAL_GetTick();
+	tick_t currentTime = DELAY_getTick();
 	bool_t timerState = false;
 	if (!(delay->running))
 	{
@@ -84,11 +88,11 @@ delayRead (delay_t *delay)
 void
 delayWrite (delay_t *delay, tick_t duration)
 {
-	if (delay == NULL) //Verify that pointer is not null
+	if (delay == NULL)
 	{
 		delayErrorHandler();
 	}
-	if (((duration > MAX_DELAY) || (duration < MIN_DELAY))) // Check if the duration is within the valid range
+	if (((duration > MAX_DELAY) || (duration < MIN_DELAY)))
 	{
 		delayErrorHandler();
 	}
@@ -102,11 +106,27 @@ delayWrite (delay_t *delay, tick_t duration)
 bool_t
 delayIsRunning (delay_t * delay)
 {
-	if (delay == NULL)  //Verify that pointer is not null
+	if (delay == NULL)
 	{
 		delayErrorHandler();
 	}
 	return (delay->running);
+}
+
+/**
+ * @brief Retrieves the current tick value.
+ *
+ * This function wraps the DELAY_portGetTick() function to provide the current
+ * tick value, which represents the number of milliseconds that have
+ * elapsed since the system started.
+ *
+ * @param void This function does not take any parameters.
+ * @return tick_t The current tick value in milliseconds.
+ */
+static tick_t
+DELAY_getTick ()
+{
+	return (DELAY_portGetTick());
 }
 
 /**
@@ -117,9 +137,7 @@ delayIsRunning (delay_t * delay)
 static void
 delayErrorHandler (void)
 {
-  /* Turn LED2 on */
-  BSP_LED_On(LED2);
-  while (1)
+  while (1) //TODO: implement a delay error handler
   {
   }
 }

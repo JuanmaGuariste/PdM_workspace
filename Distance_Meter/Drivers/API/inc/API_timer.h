@@ -14,6 +14,9 @@
 #include "stm32f4xx_hal_tim.h"
 #include "API_timer_port.h"
 
+#define	MAX_DELAY_US	60000
+#define	MIN_DELAY_US	1
+
 typedef bool bool_t;
 typedef uint32_t tick_t;
 typedef struct

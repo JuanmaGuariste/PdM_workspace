@@ -27,7 +27,11 @@ static uint8_t backLight = 1;
 /**
  * @brief Initializes the LCD.
  *
- * @param void
+ * This function initializes the LCD by performing a series of setup commands. It first initializes
+ * the I2C communication and then sends a series of initialization commands to the LCD. It returns
+ * a status indicating whether the initialization was successful.
+ *
+ * @param void This function does not take any parameters.
  * @return LCD_StatusTypedef Returns LCD_OK if the LCD was initialized correctly, otherwise LCD_FAIL.
  */
 LCD_StatusTypedef
@@ -51,9 +55,12 @@ LCD_init (void)
 }
 
 /**
- * @brief Clears the LCD.
+ * @brief Clears the LCD display.
  *
- * @param void
+ * This function sends a command to the LCD to clear its display. It returns a status indicating
+ * whether the operation was successful.
+ *
+ * @param void This function does not take any parameters.
  * @return LCD_StatusTypedef Returns LCD_OK if the LCD was cleared correctly, otherwise LCD_FAIL.
  */
 LCD_StatusTypedef
@@ -137,20 +144,14 @@ LCD_printText (char *ptrText)
  * @param number Number to include in the text.
  * @return LCD_StatusTypedef Returns LCD_OK if the text was printed correctly, otherwise LCD_FAIL.
  */
-LCD_StatusTypedef
-LCD_printFormattedText (const char *format, float number)
+LCD_StatusTypedef LCD_printFormattedText (const char *format, float number)
 {
     char buffer[32];
-    int integerPart = (int)number;
-    int decimalPart = (int)((number - integerPart) * 100); // Two decimal places
-    if (decimalPart < 0)
-    {
-        decimalPart = -decimalPart; // Handle negative numbers
-    }
-    sprintf(buffer, format, integerPart, decimalPart);
+    uint8_t integerPart = (uint8_t)number;
+    uint8_t decimalPart = (uint8_t)((number - integerPart) * TWO_DECIMALS); // Extract two decimal places
+    sprintf(buffer, format, integerPart, decimalPart); //Format the string, ensuring the format matches the types used
     return (LCD_printText(buffer));
 }
-
 /**
  * @brief Prints a character on the LCD.
  *

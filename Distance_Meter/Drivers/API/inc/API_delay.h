@@ -11,9 +11,9 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include "API_delay_port.h"
 
 typedef uint32_t tick_t;
-
 typedef bool bool_t;
 
 typedef struct

@@ -35,8 +35,13 @@ initTriggerGPIO (void)
 }
 /**
  * @brief Initializes the ultrasonic sensor port.
- * @param None
- * @retval None
+ *
+ * This function sets up the port used by the ultrasonic sensor. It initializes the GPIO for
+ * the trigger signal, sets the trigger pin to a low state, starts the timer interrupt, and
+ * initializes the delay for the trigger pulse.
+ *
+ * @param void This function does not take any parameters.
+ * @return bool_t Returns `true` if the port was initialized correctly, otherwise `false`.
  */
 bool_t
 ULTRASONIC_portInit (void)

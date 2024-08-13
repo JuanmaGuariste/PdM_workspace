@@ -1,0 +1,17 @@
+/*
+ * API_delay_port.h
+ *
+ *  Created on: Aug 12, 2024
+ *      Author: juanma
+ */
+
+#ifndef API_INC_API_DELAY_PORT_H_
+#define API_INC_API_DELAY_PORT_H_
+
+#include <stdint.h>
+
+typedef uint32_t tick_t;
+
+tick_t DELAY_portGetTick (void);
+
+#endif /* API_INC_API_DELAY_PORT_H_ */

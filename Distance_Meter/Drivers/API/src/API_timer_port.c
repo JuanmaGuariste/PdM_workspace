@@ -28,9 +28,13 @@ typedef struct
 static TimerCaptureData timerCaptureData = { 0, 0, 0, 0 };
 
 /**
- * @brief Starts the timer.
- * @param None
- * @retval None
+ * @brief Starts the TIM2 timer.
+ *
+ * This function starts the TIM2 timer by calling the HAL_TIM_Base_Start() function from the HAL library.
+ * It returns a boolean value indicating whether the timer start operation was successful.
+ *
+ * @param void This function does not take any parameters.
+ * @retval bool_t Returns true if the timer was started successfully, otherwise false.
  */
 bool_t
 TIMER_portStart (void)
@@ -40,8 +44,13 @@ TIMER_portStart (void)
 
 /**
  * @brief Initializes the TIM2 timer.
- * @param None
- * @retval None
+ *
+ * This function sets up the TIM2 timer with specific configurations for the clock source,
+ * master configuration, and input capture channel. It returns a boolean status indicating
+ * whether the initialization was successful.
+ *
+ * @param void This function does not take any parameters.
+ * @return bool_t Returns true if initialization was successful, otherwise false.
  */
 bool_t
 TIMER_portInit (void)

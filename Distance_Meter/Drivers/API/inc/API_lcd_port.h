@@ -11,13 +11,14 @@
 #include "stdint.h"
 #include "stdbool.h"
 #include "stm32f4xx_hal.h"
-#include "API_uart.h"
 
 #define LCD_ADDRESS					0x27
 #define I2C_TIMEOUT					10
 #define I2C_INSTANCE				I2C1
 #define I2C_CLOCK_SPEED				100000
 #define I2C_TIMEOUT					10
+
+typedef bool bool_t;
 
 void LCD_portDelay(uint32_t delay);
 bool_t port_init(void);

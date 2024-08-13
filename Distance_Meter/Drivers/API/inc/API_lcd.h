@@ -9,7 +9,7 @@
 #define API_INC_API_LCD_H_
 
 #include "API_lcd_port.h"
-#include "API_uart.h"
+#include "stdio.h"
 /* Control commands*/
 #define CLEAR_DISPLAY 			1
 #define _4BIT_MODE 				0x28
@@ -59,6 +59,7 @@
 #define LCD_COL_0				0
 
 #define INT_TO_ASCII			48
+#define TWO_DECIMALS			100
 
 typedef enum
 {
