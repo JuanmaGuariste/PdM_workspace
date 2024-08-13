@@ -14,7 +14,7 @@
  * @return tick_t The current tick value in milliseconds.
  */
 tick_t
-DELAY_portGetTick ()
+DELAY_portGetTick (void)
 {
 	return (HAL_GetTick());
 }

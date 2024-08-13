@@ -20,7 +20,13 @@
 ULTRASONIC_StatusTypedef
 ULTRASONIC_init (void)
 {
-	return (ULTRASONIC_portInit());
+	if (ULTRASONIC_portInit()) {
+		return ULTRASONIC_OK;
+	}
+	else
+	{
+		return ULTRASONIC_FAIL;
+	}
 }
 
 /**
