@@ -144,7 +144,8 @@ LCD_printText (char *ptrText)
  * @param number Number to include in the text.
  * @return LCD_StatusTypedef Returns LCD_OK if the text was printed correctly, otherwise LCD_FAIL.
  */
-LCD_StatusTypedef LCD_printFormattedText (const char *format, float number)
+LCD_StatusTypedef
+LCD_printFormattedText (const char *format, float number)
 {
     char buffer[32];
     uint8_t integerPart = (uint8_t)number;
