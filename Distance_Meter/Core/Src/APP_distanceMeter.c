@@ -27,10 +27,15 @@ typedef struct
 
 static const bool_t FAIL = 1;
 static UltrasonicSensorData ultrasonicSensorData = { 0.0, 0.0};
-static const float speedOfSound = 0.0343 / 2;
 static delay_t measurementDelay;
 static void MSF_errorHandler(void);
 static APP_statusTypedef initializeStateMachine(void);
+/**
+ The speed of sound is approximately 0.0343 centimeters per microseconds.
+ This value is divided by 2 to account for the fact that the distance measured
+ is the round-trip distance of the ultrasonic pulse (to the obstacle and back).
+ */
+static const float speedOfSound = 0.0343 / 2;
 
 /**
  * @brief Initializes the state machine with retry logic.
@@ -55,7 +60,7 @@ distanceMeter_FSM_init (void)
         if (initializeStateMachine() == APP_FAIL)
         {
             attempt++;
-            HAL_Delay(RETRY_DELAY_MS);
+            DELAY_blockingDelay(RETRY_DELAY_MS);
         }
         else
         {

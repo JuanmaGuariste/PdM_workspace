@@ -18,3 +18,19 @@ DELAY_portGetTick ()
 {
 	return (HAL_GetTick());
 }
+
+/**
+ * @brief Implements a blocking delay at the port level.
+ *
+ * This function uses the HAL library's `HAL_Delay()` function to create a blocking delay
+ * of the specified duration. The delay prevents the execution of any further instructions
+ * until the specified time has elapsed.
+ *
+ * @param delay Duration of the delay in milliseconds.
+ * @retval None
+ */
+void
+DELAY_portBlockingDelay (uint32_t delay)
+{
+	HAL_Delay(delay);
+}

@@ -37,4 +37,6 @@ void delayWrite(delay_t * delay, tick_t duration);
 
 bool_t delayIsRunning(delay_t * delay);
 
+void DELAY_blockingDelay (uint32_t delay);
+
 #endif /* API_INC_API_DELAY_H_ */

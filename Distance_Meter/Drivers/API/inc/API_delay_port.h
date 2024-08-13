@@ -12,6 +12,7 @@
 
 typedef uint32_t tick_t;
 
-tick_t DELAY_portGetTick (void);
+tick_t DELAY_portGetTick(void);
+void DELAY_portBlockingDelay(uint32_t delay);
 
 #endif /* API_INC_API_DELAY_PORT_H_ */

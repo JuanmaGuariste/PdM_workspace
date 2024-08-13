@@ -130,6 +130,18 @@ DELAY_getTick ()
 }
 
 /**
+ * @brief Implements a blocking delay.
+ *
+ * @param delay Duration of the delay in milliseconds.
+ * @retval None
+ */
+void
+DELAY_blockingDelay (uint32_t delay)
+{
+	DELAY_portBlockingDelay(delay);
+}
+
+/**
   * @brief  This function is executed in case of error occurrence.
   * @param  None
   * @retval None
