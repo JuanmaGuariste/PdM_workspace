@@ -27,6 +27,17 @@
 #define NORMAL_OPERATION		0x01
 #define DISPLAY_TEST_MODE		0x00
 
+#define COLUMN_1				0x01
+#define COLUMN_2				0x02
+#define COLUMN_3				0x03
+#define COLUMN_4				0x04
+#define COLUMN_5				0x05
+#define COLUMN_6				0x06
+#define COLUMN_7				0x07
+#define COLUMN_8				0x08
+
+
+
 typedef enum {
 	LED_MATRIX_OK,
 	LED_MATRIX_FAIL
