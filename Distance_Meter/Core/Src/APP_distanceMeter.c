@@ -30,12 +30,7 @@ static UltrasonicSensorData ultrasonicSensorData = { 0.0, 0.0};
 static delay_t measurementDelay;
 static void MSF_errorHandler(void);
 static APP_statusTypedef initializeStateMachine(void);
-/**
- The speed of sound is approximately 0.0343 centimeters per microseconds.
- This value is divided by 2 to account for the fact that the distance measured
- is the round-trip distance of the ultrasonic pulse (to the obstacle and back).
- */
-static const float speedOfSound = 0.0343 / 2;
+static const float speedOfSound = 0.0343;
 
 /**
  * @brief Initializes the state machine with retry logic.
@@ -326,7 +321,12 @@ getDistanceUltrasonicData (void)
 static float
 timeToDistanceConvertion (float time)
 {
-	return (time * speedOfSound);
+	/**
+	 The speed of sound is approximately 0.0343 centimeters per microseconds.
+	 This value is divided by 2 to account for the fact that the distance measured
+	 is the round-trip distance of the ultrasonic pulse (to the obstacle and back).
+	 */
+	return (time * speedOfSound / 2);
 }
 
 static
