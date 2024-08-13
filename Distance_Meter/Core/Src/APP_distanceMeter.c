@@ -5,10 +5,7 @@
  *      Author: juanma
  */
 #include "APP_distanceMeter.h"
-const bool_t FAIL = 1;
-const bool_t OK = 0;
 
-static distanceMeterState_t currentState;
 static distanceMeterState_t handler_trigerSensor(void);
 static distanceMeterState_t handler_waitForEcho(void);
 static distanceMeterState_t handler_measureDistance(void);
@@ -20,13 +17,16 @@ static float getTimeUltrasonicData(void);
 static void setDistanceUltrasonicData(float distance);
 static float getDistanceUltrasonicData(void);
 static float timeToDistanceConvertion(float time);
+static distanceMeterState_t currentState; //Global private variable to store the current state of the MSF.
 
+static distanceMeterState_t currentState;
 typedef struct
 {
 	float time;
 	float distance;
 } UltrasonicSensorData;
 
+static const bool_t FAIL = 1;
 static UltrasonicSensorData ultrasonicSensorData = { 0.0, 0.0};
 static const float speedOfSound = 0.0343 / 2;
 static delay_t measurementDelay;
