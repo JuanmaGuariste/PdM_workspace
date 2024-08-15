@@ -20,7 +20,7 @@ static uint32_t secondEdgeAux = 0;
 static float pulseDurationAux = 0;
 
 
-TIM_HandleTypeDef TIM2_HANDLE;
+static TIM_HandleTypeDef TIM2_HANDLE;
 
 typedef struct
 {
