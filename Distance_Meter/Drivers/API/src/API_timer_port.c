@@ -6,19 +6,19 @@
  */
 #include "API_timer_port.h"
 
+#define FIRST_EDGE		0
+#define SECOND_EDGE		1
+
 static uint8_t TIMER_getCaptureIdx(void);
 static void TIMER_setCaptureIdx(uint8_t idx);
 static uint32_t TIMER_getSecondEdgeTime(void);
 static void TIMER_setFirstEdgeTime(uint32_t time);
 static uint32_t TIMER_getFirstEdgeTime(void);
 static void TIMER_setSecondEdgeTime(uint32_t time);
-static void TIMER_setPulseDuration(float duration);
 static void TIMER_portReStartTimerCounter(void);
 
 static uint32_t firstEdgeAux = 0;
 static uint32_t secondEdgeAux = 0;
-static float pulseDurationAux = 0;
-
 
 static TIM_HandleTypeDef TIM2_HANDLE;
 
@@ -27,10 +27,9 @@ typedef struct
 	uint8_t captureIdx;
 	uint32_t firstEdgeTime;
 	uint32_t secondEdgeTime;
-	float pulseDuration;
 } TimerCaptureData;
 
-static TimerCaptureData timerCaptureData = { 0, 0, 0, 0 };
+static TimerCaptureData timerCaptureData = { 0, 0, 0 };
 
 /**
  * @brief Starts the TIM2 timer.
@@ -163,29 +162,20 @@ TIMER_portGetTimerCounter (void)
 void
 HAL_TIM_IC_CaptureCallback (TIM_HandleTypeDef *TIM2_HANDLE)
 {
-	if (TIM2_HANDLE->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
+	if ((TIM2_HANDLE->Channel == HAL_TIM_ACTIVE_CHANNEL_1) && (TIM2_HANDLE != NULL))
 	{
-		if (TIMER_getCaptureIdx() == 0)
+		if (TIMER_getCaptureIdx() == FIRST_EDGE)
 		{
 			firstEdgeAux = HAL_TIM_ReadCapturedValue(TIM2_HANDLE, TIM_CHANNEL_1);
 			TIMER_setFirstEdgeTime(firstEdgeAux);
-			TIMER_setCaptureIdx(1);
+			TIMER_setCaptureIdx(SECOND_EDGE);
 		}
-		else if (TIMER_getCaptureIdx() == 1)
+		else if (TIMER_getCaptureIdx() == SECOND_EDGE)
 		{
 			secondEdgeAux = HAL_TIM_ReadCapturedValue(TIM2_HANDLE, TIM_CHANNEL_1);
 			TIMER_setSecondEdgeTime(secondEdgeAux);
 			TIMER_portReStartTimerCounter();
-			if (TIMER_getSecondEdgeTime() > TIMER_getFirstEdgeTime())
-			{
-				pulseDurationAux = (TIMER_getSecondEdgeTime() - TIMER_getFirstEdgeTime());
-				TIMER_setPulseDuration(pulseDurationAux);
-			}
-			else
-			{
-				TIMER_setPulseDuration(0);
-			}
-			TIMER_setCaptureIdx(0);
+			TIMER_setCaptureIdx(FIRST_EDGE);
 			TIMER_portDisableInterrupt();
 		}
 	}
@@ -288,16 +278,10 @@ TIMER_setSecondEdgeTime (uint32_t time)
 float
 TIMER_getPulseDuration (void)
 {
-	return (timerCaptureData.pulseDuration);
-}
-
-/**
- * @brief Sets the captured pulse duration.
- * @param duration: Pulse duration in microseconds.
- * @retval None
- */
-static void
-TIMER_setPulseDuration (float duration)
-{
-	timerCaptureData.pulseDuration = duration;
+	float pulseDuration = 0;
+	if (TIMER_getSecondEdgeTime() > TIMER_getFirstEdgeTime())
+		{
+		 	pulseDuration = (TIMER_getSecondEdgeTime() - TIMER_getFirstEdgeTime());
+		}
+	return (pulseDuration);
 }
