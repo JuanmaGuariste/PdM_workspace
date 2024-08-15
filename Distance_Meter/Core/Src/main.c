@@ -87,11 +87,6 @@ int main(void)
 	while (1)
 	{
 		distanceMeter_FSM_update();
-//		if (distanceMeter_FSM_update() == APP_FAIL)
-//		{
-//			Error_Handler();
-//		}
-
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
