@@ -16,7 +16,6 @@
 #define I2C_TIMEOUT					10
 #define I2C_INSTANCE				I2C1
 #define I2C_CLOCK_SPEED				100000
-#define I2C_TIMEOUT					10
 
 typedef bool bool_t;
 
